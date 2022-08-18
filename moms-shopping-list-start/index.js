@@ -9,12 +9,17 @@ form.addEventListener("submit", function (event) {
     const ul = document.getElementById("list")
     const newItem = document.createElement("div")
     const newLi = document.createElement("li")
-    const btn = document.createElement("button")
+    const deleteBtn = document.createElement("button")
 
     ul.append(newItem)
     newItem.append(newLi)
-    newLi.append(btn)
-
-    btn.innerHTML = "x"
     newLi.innerHTML = itemName
+    newLi.append(deleteBtn)
+    deleteBtn.innerHTML = "x"
+
+    // deleteBtn.addEventListener("click", function (event) {
+    //    event.preventDefault()
+             
+    // })
+     
 })
