@@ -23,6 +23,10 @@ form.addEventListener("submit", (event) => {
     deleteBtn.append(editBtn)
     // editBtn.className = "space"
     editBtn.textContent = "edit"
+
+    
+    console.log(newItem)
+    console.dir(newItem)
     
 // function to delete an item from the list    
 deleteBtn.addEventListener("click", () => {
