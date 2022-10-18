@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<h1>Simple HTML Calculator</h1>
+
+<body>
+    <section>
+        <h2>Add</h2>
+        <div class="math-add">
+            <form name="add-form">
+                <input type="number" name="add1" placeholder="1st number" />
+                <input type="number" name="add2" placeholder="2nd number" />
+                <button id="addButton">+</button>
+            </form>
+        </div>
+        <h3 id="addAnswer">Answer: </h3>
+    </section>
+
+    <section>
+        <h2>Subtract</h2>
+        <div class="math-subtract">
+            <form name="subtract-form">
+                <input type="number" name="sub1" placeholder="1st number" />
+                <input type="number" name="sub2" placeholder="2nd number" />
+                <button>-</button>
+            </form>
+        </div>
+        <h3 id="subAnswer">Answer: </h3>
+    </section>
+
+    <section>
+        <h2>Multiply</h2>
+        <div class="math-multiply">
+            <form name="multiply-form">
+                <input type="number" name="mult1" placeholder="1st number" />
+                <input type="number" name="mult2" placeholder="2nd number" />
+                <button>x</button>
+            </form>
+        </div>
+        <h3 id="multAnswer">Answer: </h3>
+    </section>
+
+    <section>
+        <h2>Divide</h2>
+        <div class="math-divide">
+            <form name="divide-form">
+                <input type="number" name="div1" placeholder="1st number" />
+                <input type="number" name="div2" placeholder="2nd number" />
+                <button>/</button>
+            </form>
+        </div>
+        <h3 id="divAnswer">Answer: </h3>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+section {
+    width: 400px;
+    border: 8px solid black;
+    border-style: solid;
+    padding: 30px;
+}
+
+div {
+    width: 300px;
+}
+
+.math-add {
+    border: 5px green;
+    border-style: solid;
+    padding: 30px;
+}
+
+.math-subtract {
+    border: 5px red;
+    border-style: dashed;
+    padding: 30px;
+}
+
+.math-multiply {
+    border: 5px blue;
+    border-style: dotted;
+    padding: 30px;
+}
+
+.math-divide {
+    border: 5px orange;
+    border-style: double;
+    padding: 30px;
+}
