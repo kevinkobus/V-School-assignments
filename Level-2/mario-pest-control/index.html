@@ -12,34 +12,33 @@
 
 <body>
     <h1>Mario's Pest Control</h1> 
-    <p>Got a pest infestation?  Let Mario take care of your problem!<br>
+    <p>Got a pest infestation?  Let Mario take care of your problem!
       Mario is a certified Goomba, Bob-omb, and Cheep-cheep destroyer.</p>
-    <br>
     <section>
-    <ul>
-      <label>Price List:</label>
-      <li>Goombas: 5 coins</li>
-      <li>Bob-ombs: 7 coins</li>
-      <li>Cheep-cheeps: 11 coins</li>
+    <ul id="priceList">
+      <label id="listLabel">Cost per catch</label>
+      <li>Goombas: 5 coins each</li>
+      <li>Bob-ombs: 7 coins each</li>
+      <li>Cheep-cheeps: 11 coins each</li>
     </ul>
     </section>
-    <section>
+    <section id="inputSection">
     <form name="mariosForm">
-      <input type="number" name="goombas">
+      <input class="inputBox type="number" name="goombas">
       <label for="">Goombas caught</label>
-      <img>
-      <input type="number" name="bobombs">
+      <img alt="goomba pic">
+      <input class="inputBox type="number" name="bobombs">
       <label for="">Bob-ombs caught</label>
-      <img>
-      <input type="number" name="cheepcheeps">
+      <img alt="bobomb pic">
+      <input class="inputBox type="number" name="cheepcheeps">
       <label for="">Cheep-cheeps caught</label>
-      <img> 
+      <img alt="cheepcheep pic"> 
     </form>
     </section>
     <footer>
-    <div>Mario's Pest Control is highly recommended by Princess Peach!<div>
-      <img>
-      <img>
+    <div id="reviews">Mario's Pest Control is highly recommended by Princess Peach!<div>
+      <img alt="princess peach pic">
+      <img alt="thumbs up pic">
     <div>Mario's Pest Control<br>
       123 Spaghetti Way<br>
       Brooklyn, NY USA

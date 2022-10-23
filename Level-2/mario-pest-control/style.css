@@ -1,0 +1,61 @@
+body {
+    background-color: #d7e0e0;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 80px;
+    font-weight: 600;
+    background-image: linear-gradient(to bottom, #120fd6, #181821, #ed1f1f);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+  
+  p {
+    font-size: 25px;
+  }
+  
+  #priceList {
+    background-color: #1ec935;
+    height: 140px;
+    width: 380px;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 7px;
+    font-size: 30px;
+    padding: 30px;
+    margin: 10px;
+  }
+  
+  #listLabel {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  #inputSection {
+    height: 200px;
+    width: 450px;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 7px;
+    font-size: 30px;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  .inputBox {
+    width: 25px;
+    height: 25px;
+  }
+  
+  footer {
+    height: 200px;
+    width: 750px;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 7px;
+    font-size: 20px;
+    padding: 5px;
+    margin: 10px;
+  }
