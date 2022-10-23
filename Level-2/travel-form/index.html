@@ -6,13 +6,13 @@
     <title>Travel Form</title>
 </head>
 <body>
-    <h1>Welcome Sky High Airlines</h1>
-    <p>Please fill out the following form so can serve you best</p>
-    <form id="airline-form">
-        <input type="text" name="first-name">
+    <h1>Welcome to Sky High Airlines</h1>
+    <p>Please fill out the following form so we can serve you best</p>
+    <form name="airlineForm">
+        <input type="text" name="firstName">
         <label for="">First Name</label>
         <br>
-        <input type="text" name="last-name">
+        <input type="text" name="lastName">
         <label for="">Last Name</label>
         <br>
         <input type="digit" name="age">
@@ -27,12 +27,14 @@
         <input type="radio" name="gender" value="neutral" id="neutral">
         <label for="neutral">Neutral</label>
         <br>
-        <select name="travel-location">
-            <option value="london">London</option>
-            <option value="new york">New York</option>
-            <option value="tokyo">Tokyo</option>
+        <select name="travelLocation">
+            <option value="aspen">Aspen</option>
+            <option value="steamboat">Steamboat</option>
+            <option value="telluride">Telluride</option>
         </select>
         <label for="">Where are you going?</label>
+        <br>
+        <label>Please choose any dietary preferences</label>
         <br>
         <input class="diet" type="checkbox" name="diet" id="vegan" value="vegan">
         <label for="vegan">Vegan</label>
@@ -40,10 +42,10 @@
         <input class="diet" type="checkbox" name="diet" id="gluten" value="gluten-free">
         <label for="gluten">Gluten-free</label>
         <br>
-        <input class="diet" type="checkbox" name="diet" id="paleo" value="paleo">
-        <label for="paleo">Paleo</label>
+        <input class="diet" type="checkbox" name="diet" id="dairy-free" value="dairy-free">
+        <label for="dairy-free">Dairy-free</label>
         <br>
-        <button type="button" id="submit">Submit</button>
+        <button>Submit</button>
     </form>
     <script src="app.js"></script>
 </body>

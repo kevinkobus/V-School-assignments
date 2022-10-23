@@ -1,33 +1,20 @@
-var form = document.getElementById("airline-form");
-var submit = document.getElementById("submit");
-// var query = document.querySelector();
+const form = document.airlineForm
 
-function formAlert() {
-    var firstName = form.elements["first-name"].value;
-    var lastName = form.elements["last-name"].value;
-    var age = form.elements["age"].value;
-    var gender = form.elements["gender"].value;
-    var location = form.elements["travel-location"].value;
-    var diet = []
-    var noChoice = "none"
+form.addEventListener("submit", (event) => {
+    event.preventDefault()
+  
+const dietNeeds = []
 
-    function foodChoice(diet) {
-    if (form.elements["vegan"].checked) {
-        diet.push(document.getElementById("vegan").value);
-    }
-    if (form.elements["gluten"].checked) {
-        diet.push(document.getElementById("gluten").value);
-    }
-    if (form.elements["paleo"].checked) {
-        diet.push(document.getElementById("paleo").value);
-    }
-    else {
-        diet.push.noChoice
-    }
-    return diet 
-    }
+      for(let i = 0; i < form.diet.length; i++){
+        if(form.diet[i].checked){
+            dietNeeds.push(form.diet[i].value)
+        }
+      }
+    const first = form.firstName.value
+    const last = form.lastName.value
+    const age = form.age.value
+    const gender = form.gender.value
+    const location = form.travelLocation.value      
 
-    alert("First Name: " + firstName + "\nLast Name: " + lastName + "\nAge: " + age + "\nGender: " + gender + "\nTravel Location: " + location + "\nDiet: " + diet + "\nAwesome, now if you die, it won't be an accident..");
-}
-
-submit.addEventListener("click", formAlert);
+ alert ("First Name: " + first + "\nLast Name: " + last + "\nAge: " + age + "\nGender: " + gender + "\nTravel Location: " + location + "\nDietary preferences: " + dietNeeds)
+})
