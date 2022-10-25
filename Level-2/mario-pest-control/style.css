@@ -43,7 +43,7 @@ p {
 #inputForm {
     display: flex;
     flex-direction: column;
-    height: 330px;
+    height: 510px;
     width: 450px;
     border-style: solid;
     border-width: 3px;
@@ -83,12 +83,50 @@ p {
 }
 
 footer {
-  height: 200px;
-  width: 750px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 300px;
+  width: 1300px;
   border-style: solid;
   border-width: 3px;
   border-radius: 7px;
   font-size: 20px;
   padding: 5px;
   margin: 10px;
+}
+
+#reviews {
+  flex: 1;
+}
+
+#mariosAddress {
+  flex: 2;
+}
+
+#mariosUrl {
+  flex: 3;
+}
+
+#mariosEmail {
+  flex: 6;
+}
+
+#princessPeachImg {
+  border: 1px;
+  border-color:black;
+  border-radius: 1px;
+  padding: 5px;
+  width: 50px;
+  flex: 4;
+}
+
+#thumbsUpImg {
+  border: 1px;
+  border-color:black;
+  border-radius: 1px;
+  padding: 5px;
+  width: 50px;
+  flex: 5;
 }
