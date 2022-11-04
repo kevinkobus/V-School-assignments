@@ -1,21 +1,35 @@
 // 1) Turn an array of numbers into a total of all the numbers
 function total(arr) {
-    // your code here
- }
+    const result = arr.reduce(function(final, num){
+     final += num
+     return final
+   })
+    return result
+ }   
  
  console.log(total([1,2,3])); // 6
  
  // 2) Turn an array of numbers into a long string of all those numbers.
  function stringConcat(arr) {
-    // your code here
- }
+   const result = arr.reduce(function(final, num){
+    final += num
+    return final
+  }, "")
+  return result
+}
+
+console.log(stringConcat([1,2,3])) // "123"
  
- console.log(stringConcat([1,2,3])); // "123"
- 
- // 3) Turn an array of voter objects into a count of how many people voted 
- // Note: You don't necessarily have to use reduce for this, so try to think of multiple ways you could solve this.
- function totalVotes(arr) {
-    // your code here
+//  // 3) Turn an array of voter objects into a count of how many people voted 
+//  // Note: You don't necessarily have to use reduce for this, so try to think of multiple ways you could solve this.
+function totalVotes(arr) {
+    const voteCount = arr.reduce(function(final, voter){
+       if(voter.voted){
+       final ++
+    }
+      return final
+     }, 0)
+     return voteCount + " people voted"
  }
  
  var voters = [
@@ -34,9 +48,13 @@ function total(arr) {
  ];
  console.log(totalVotes(voters)); // 7
  
- // 4) Given an array of all your wishlist items, figure out how much it would cost to just buy everything at once
- function shoppingSpree(arr) {
-    // your code here
+//  // 4) Given an array of all your wishlist items, figure out how much it would cost to just buy everything at once
+function shoppingSpree(arr) {
+    const totalPrice = arr.reduce(function(final, dollars){
+      final += dollars.price
+      return final
+    }, 0)
+    return totalPrice
  }
  
  var wishlist = [
@@ -49,9 +67,13 @@ function total(arr) {
  
  console.log(shoppingSpree(wishlist)); // 227005
  
- // 5) Given an array of arrays, flatten them into a single array Note: Take a look at Array.concat() to help with this one
- function flatten(arr) {
-    // your code here
+//  // 5) Given an array of arrays, flatten them into a single array Note: Take a look at Array.concat() to help with this one
+function flatten(arr) {
+    const combArr = arr.reduce(function(final, array){
+      final = final.concat(array)
+      return final
+    }, [])
+    return combArr
  }
  
  var arrays = [
@@ -63,9 +85,10 @@ function total(arr) {
  console.log(flatten(arrays)); // ["1", "2", "3", true, 4, 5, 6];
  
  
- // 6) ### **Given an array of potential voters, return an object representing the results of the vote**
+//  // 6) ### **Given an array of potential voters, return an object representing the results of the vote**
  
- // Include how many of the potential voters were in the ages 18-25, how many from 26-35, how many from 36-55, and how many of each of those age ranges actually voted. The resulting object containing this data should have 6 properties. See the example output at the bottom.
+//  Include how many of the potential voters were in the ages 18-25, how many from 26-35, how many from 36-55, and how many of each of those age ranges actually voted. The resulting object containing this data should have 6 properties. See the example output at the bottom.
+
  var voters = [
      {name:'Bob' , age: 30, voted: true},
      {name:'Jake' , age: 32, voted: true},
@@ -81,9 +104,43 @@ function total(arr) {
      {name: 'Zack', age: 19, voted: false}
  ];
  
- function voterResults(arr) {
-    // your code here
+function voterResults(arr) {
+    const pollResults = arr.reduce(function(final, people){
+      if (people.age >= 18 && people.age <= 25) {
+             if (people.voted) {
+                 final.numYoungVotes++
+                 final.numYoungPeople++
+             } else  {
+                 final.numYoungPeople++
+             }}
+         else if (people.age >= 26 && people.age <= 35) {
+             if (people.voted) {
+                 final.numMidVotes++
+                 final.numMidPeople++
+             } else {
+                 final.numMidPeople++
+             }}
+         else if (people.age >= 36 && people.age <= 55) {
+             if (people.voted) {
+                 final.numOldVotes++
+                 final.numOldPeople++
+             } else  {
+                 final.numOldPeople++
+             }}
+             return final
+         }          
+    , {
+   numYoungVotes: 0,
+   numYoungPeople: 0,
+   numMidVotes: 0,
+   numMidPeople: 0,
+   numOldVotes: 0,
+   numOldPeople: 0
+    }
+ )
+ return pollResults
  }
+ 
  
  console.log(voterResults(voters)); // Returned value shown below:
  /*
