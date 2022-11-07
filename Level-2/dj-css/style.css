@@ -1,0 +1,45 @@
+#background {
+    background-color: #99ccff;
+  }
+  
+  h1 {
+    font-size: 50px;
+    color: #4d004d;
+  }
+  
+  #grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr)
+  }
+  
+  .square {
+    width: 200px;
+      height: 200px;
+      border: 1px solid black;
+      background-color: white;
+  }
+  
+  #box1 {
+    background-color: red;
+  }
+  
+  #box2 {
+    background-color: orange;
+  }
+  
+  #box3 {
+    background-color: yellow;
+  }
+  
+  #box4 {
+    background-color: green;
+  }
+  
+  #box5 {
+    background-color: blue;
+  }
+  
+  #box6 {
+    background-color: purple;
+  }
