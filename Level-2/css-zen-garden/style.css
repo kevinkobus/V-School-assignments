@@ -1,7 +1,11 @@
 body {
     background: #fff;
     font-family: Libre Baskerville, sans-serif;
-    font-size: 70%; 
+    font-size: 70%;
+}
+
+.container>div {
+    border: solid 1px black;
 }
 
 .container {
@@ -11,43 +15,65 @@ body {
 }
 
 .header {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
     background-image: url(images/huntington.jpg);
 }
 
-.headerLeft {
-    grid-column: 1 / 3;
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
 }
 
-.headerRight {
-    grid-column: 3 / 4;
+.image {
+    border: solid 1px black;
+}
+
+.zen {
+    border: solid 1px black;
+}
+
+.design {
+    border: solid 1px black;
+}
+
+.top {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
 }
 
 .authors {
-    background-image: 
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
 }
+
+.middle {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+}
+
 .links {
-    background-color:
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+}
+
+.bottom {
+    grid-column: 1 / 3;
+    grid-row: 4 / 5;
+}
+
+.empty {
+    grid-column: 3 / 4;
+    grid-row: 4 / 5;
 }
 
 .footer {
-    grid-column: 1 / 3;
+    grid-column: 1 / 4;
+    grid-row: 5 / 7;
 }
-
-
-
-/* @media (max-width: 900px){
-    /* use this media query to help these two cells drop to the bottom when screens are smaller */
-    /* .authors {
-         
-    }
-    .links {
-
-    }
-    /* container could use some help so that it's children are full screen width */
-    /* .container {
-        
-    }
-} */
 
 /* FLEX */
 /* use flexbox to make the icons behave like css zen garden's social icons */
@@ -59,9 +85,23 @@ body {
     padding: 10px;
 }
 
-.icons > div {
+.icons>div {
     width: 30px;
     height: 30px;
     background-color: black;
     border-radius: 50%;
 }
+
+/* @media (max-width: 900px){
+    /* use this media query to help these two cells drop to the bottom when screens are smaller */
+/* .authors {
+         
+    }
+    .links {
+
+    }
+    /* container could use some help so that it's children are full screen width */
+/* .container {
+        
+    }
+} */
