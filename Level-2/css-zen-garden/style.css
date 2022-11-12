@@ -1,17 +1,22 @@
-@font-face {
-    font-family: 'verdemoderna';
-    src: url(images/verdemoderna.woff);
-}
+@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One|Libre+Baskerville:400,400italic);
 
+html,
 body {
-    background: #fff;
     margin: 0;
     padding: 0;
 }
 
-.container>div {
-    border: solid 1px black;
+body {
+    color: #325050;
+    background: #fff;
+    font-family: 'Libre Baskerville', sans-serif;
+    font-size: 70%;
 }
+
+
+/* .container>div {
+    border: solid 1px black;
+} */
 
 .container {
     display: grid;
@@ -20,12 +25,15 @@ body {
 }
 
 .header {
-    height: 310px;
+    height: 230px;
+    padding: 20px 0 70px 0;
     grid-column: 1 / 4;
     grid-row: 1 / 2;
-    background: url(images/huntington.jpg);
-    font-family: 'Julius Sans One', sans-serif;
-
+    background-image: url(images/contours.png), url(images/noise.png), url(images/gridlines.png), url(images/huntington.jpg);
+    background-position: 0 0, 0 0, -5px -25px, 0 50%;
+    background-repeat: repeat, repeat, repeat, no-repeat;
+    background-size: auto, auto, auto, cover;
+    text-align: center;
 }
 
 .header {
@@ -36,7 +44,21 @@ body {
 
 h1 {
     color: white;
-    
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 51px;
+}
+
+h2 {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 26px;
+    font-style: italic;
+}
+
+h3 {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 29px;
+    font-weight: normal;
 }
 
 .image {
