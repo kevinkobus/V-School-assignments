@@ -143,3 +143,38 @@ const printString = (firstName = "Jane", lastName = "Doe", age = 100) =>
 
 console.log(printString("Lilly Anne", "Kobus", 10));
 
+// ### **Task 5**
+
+// Use the shorthand syntax to make the following filter take up one line. Copy and paste the array to test it.
+
+const animals = [
+    {
+        type: "dog",
+        name: "theodore"
+    },
+    {
+        type: "cat",
+        name: "whiskers"
+    },
+    {
+        type: "pig",
+        name: "piglette"
+    },
+    {
+        type: "dog",
+        name: "sparky"
+    }
+ ];
+ 
+ // function filterForDogs(arr) {
+ //     return arr.filter(animal => {
+ //         if (animal.type === "dog") {
+ //             return true
+ //         } else {
+ //             return false
+ //         }
+ //     })
+ // }
+ 
+ const filterForDogs = (arr) => arr.filter(animal => (animal.type === "dog"))
+  console.log(filterForDogs(animals))
