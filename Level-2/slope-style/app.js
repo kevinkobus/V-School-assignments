@@ -5,11 +5,11 @@
 //     /*and here*/
 // }
 
-// function collectAnimals(...arr) {
-//   return arr
-// }
+function collectAnimals(...arr) {
+   return arr
+ }
 
-// console.log(collectAnimals("dog", "cat", "mouse", "jackolope", "platypus"));
+console.log(collectAnimals("dog", "cat", "mouse", "jackolope", "platypus"));
 // ["dog", "cat", "mouse", "jackolope", "platypus"]
 
 // Write a function that returns a food object with the array names as properties. You'll use an ES6 shorthand syntax that becomes useful when a variable name is mentioned twice in both the name and value of properties in your object:
