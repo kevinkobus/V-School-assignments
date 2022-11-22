@@ -118,18 +118,12 @@ console.log(combineAnimals(realAnimals, magicalAnimals, mysteriousAnimals));
 //   }, 1)
 // }
 
-// Black Diamonds
-// Try to make the following function more ES6y:
+let product = (a, b, c, d, e) => {
+  var numbers = [a,b,c,d,e]
+  return numbers.reduce((acc, number) => acc * number, 1)
+}
 
-// function product(a, b, c, d, e) {
-//   var numbers = [a,b,c,d,e];
-
-//   return numbers.reduce(function(acc, number) {
-//     return acc * number;
-//   }, 1)
-// }
-
-function product 
+console.log(product(1, 2, 3, 4, 5))
 
 // Make the following function more ES6y. Use at least both the rest and spread operators:
 
@@ -137,7 +131,11 @@ function product
 //   return [a, b, c, d, e].concat(array);
 // }
 
-// function unshift()
+const array = []
+
+let unshift = (array, a, b, c, d, e) => [a, b, c, d, e, ...array]
+
+console.log(unshift(array))
 
 // Double Black Diamond
 // Write some destructuring code to help this function out. Use the ES6 shorthand that helps make the syntax look less redundant to simplify it:
@@ -152,6 +150,16 @@ function product
 //         }
 //     })
 // }
+
+function populatePeople(names) {
+  return names.map(function(name){
+    name = name.split(" ")    
+  
+return [{"firstName: " + name.[0] + "," + " lastName:" + name.[1]]
+})
+}
+
+console.log(populatePeople(["Frank Peterson", "Suzy Degual", "Liza Jones"]))
 
 // populatePeople(["Frank Peterson", "Suzy Degual", "Liza Jones"])
 //[
