@@ -83,11 +83,10 @@ const favoriteActivities = [
 
 function returnFavorites(arr) {
   const [firstFav, secondFav, thirdFav] = arr;
-  return "My top three favorite activities are, ${firstFav}, ${secondFav}, and ${thirdFav}";
+  return `My top three favorite activities are, ${firstFav}, ${secondFav}, and ${thirdFav}`;
 }
 
 console.log(returnFavorites(favoriteActivities));
-
 
 // Blue Square
 // Use the Rest and Spread Operator to help take any number of arrays, and return one array. You will need to change how the arrays are passed in. You may write it assuming you will always recieve three arrays if you would like to.
@@ -96,13 +95,13 @@ console.log(returnFavorites(favoriteActivities));
 
 // }
 
+function combineAnimals(array, ...moreArrays) {
+ return [...array, ...moreArrays]
+}
+
 const realAnimals = ["dog", "cat", "mouse"];
 const magicalAnimals = ["jackolope"];
 const mysteriousAnimals = ["platypus"];
-
-function combineAnimals(array, ...moreArrays) {
- return [...moreArrays,...array]
-}
 
 console.log(combineAnimals(realAnimals, magicalAnimals, mysteriousAnimals));
 
@@ -118,3 +117,45 @@ console.log(combineAnimals(realAnimals, magicalAnimals, mysteriousAnimals));
 //     return acc * number;
 //   }, 1)
 // }
+
+// Black Diamonds
+// Try to make the following function more ES6y:
+
+// function product(a, b, c, d, e) {
+//   var numbers = [a,b,c,d,e];
+
+//   return numbers.reduce(function(acc, number) {
+//     return acc * number;
+//   }, 1)
+// }
+
+function product 
+
+// Make the following function more ES6y. Use at least both the rest and spread operators:
+
+// function unshift(array, a, b, c, d, e) {
+//   return [a, b, c, d, e].concat(array);
+// }
+
+// function unshift()
+
+// Double Black Diamond
+// Write some destructuring code to help this function out. Use the ES6 shorthand that helps make the syntax look less redundant to simplify it:
+
+// function populatePeople(names){
+//     return names.map(function(name){
+//         name = name.split(" ");
+//         // your code
+//         return {
+//             firstName: firstName,
+//             lastName: lastName
+//         }
+//     })
+// }
+
+// populatePeople(["Frank Peterson", "Suzy Degual", "Liza Jones"])
+//[
+//  {firstName: "Frank", lastName: "Peterson"},
+//  {firstName: "Suzy", lastName: "Degual"},
+//  {firstName: "Liza", lastName: "Jones"},
+//]
