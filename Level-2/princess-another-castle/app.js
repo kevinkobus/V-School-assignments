@@ -18,24 +18,60 @@ class Player {
     }
   }
 
-    gotHit() {
-
+  gotHit() {
+    if (this.hasStar === true) {
+      console.log("You got hit and your star protected you, but now it's gone");
+      this.hasStar = false;
+    } else if (this.status === "Powered Up") {
+      this.status = "Big";
+    } else if (this.status === "Big") {
+      this.status = "small";
+    } else {
+      this.status = "dead";
+      console.log(
+        "You were small and couldn't survive another hit. You have perished"
+      );
+      process.exit();
     }
+  }
 
-    gotPowerUp() {
-
+  gotPowerUp() {
+    if (this.status === "Powered Up") {
+      console.log("You've earned a star!");
+      this.hasStar = true;
+    } else if (this.status === "Big") {
+      this.status = "Powered Up";
+    } else {
+      this.status = "Big";
     }
-
-    addCoin() {
-
-    }
+  }
+  addCoin() {
+    this.totalCoins++;
+  }
 
   print() {
     console.log(
-      `Name: ${this.name}\nStatus: ${this.status}\nTotal Coins: ${this.totalCoins}`
+      `Name: ${this.name}\nStatus: ${this.status}\nTotal Coins: ${this.totalCoins}\n`
     );
+    if (this.hasStar === true) {
+      console.log("You have a star\n");
+    }
   }
+}
 
+let randomInteger = () => {
+  let num = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+  if (num === 0) {
+    console.log("Smack, you got hit!")
+    activePlayer.gotHit();
+  } else if (num === 1) {
+    console.log("Yes!, you've been powered up")
+    activePlayer.gotPowerUp();
+  } else if (num === 2) {
+    console.log("Nice!, you earned a coin")
+    activePlayer.addCoin();
+  }
+  activePlayer.print();
 }
 
 //pick player question
@@ -49,25 +85,4 @@ activePlayer.setName(pickPlayer);
 
 // console.log(activePlayer.name)
 
-
-let randomInteger (min, max) => {
-  let num = Math.floor(Math.random() * (max - min + 1)) + min;
-
-  if (num === 0) {
-    gotHit()
-  }
-  else if (num === 1) {
-    gotPowerUp()
-  }
-  else if (num === 2) {
-    addCoin()
-  }
-
-
-}
-
-
-
-
-
-// activePlayer.print()
+setInterval(randomInteger, 3000);
