@@ -1,16 +1,113 @@
-   {
-    "appetizers": [
+{
+  "appetizers": [
+    {
+      "name": "Small salad",
+      "ingredients": ["lettuce", "tomato", "cucumber", "carrot", "vinegrete"],
+      "description": "Mixed baby lettuces with veggies and house vinegrete dressing"
+    },
 
-        {
-            "name": "Small salad",
-            "ingredients": ["lettuce", "tomato", "cucumber", "carrot", "vinegrete"],
-            "description": "Mixed baby lettuces with veggies and house vinegrete dressing"
-      },
+    {
+      "name": "Frencn onion soup",
+      "ingredients": [
+        "beef based broth",
+        "sweet onion",
+        "bread",
+        "gruyere cheese"
+      ],
+      "description": "House made slow cooked french onion soup the traditional way"
+    }
+  ],
 
-        { 
-            "name": "Frencn onion soup",
-            "ingredients": ["beef based broth", "sweet onion", "bread", "gruyere cheese"],
-            "description": "House made slow cooked french onion soup the traditional way"
+  "cold sandwiches": [
+    {
+      "name": "House Turkey Club",
+      "ingredients": [
+        "choice of bread",
+        "oven roasted turkey",
+        "applewood smoked bacon",
+        "tomato",
+        "lettuce",
+        "mayo"
+      ],
+      "description": "A famous favorite made with in house smoked bacon, fresh lettuce and tomatoes, and house made bread"
+    },
+    {
+      "name": "Build Your Own",
+      "ingredients": [
+        "bread",
+        "cheese",
+        "sliced meat",
+        "toppings",
+        "condiments"
+      ],
+      "description": "Build it your way with any combo of ingredients"
     }
-]
+  ],
+
+  "hot sandwiches": [
+    {
+      "name": "Kev's Signature Ruben",
+      "ingredients": [
+        "pumpernickel bread",
+        "thin sliced corned beef",
+        "imported swiss cheese",
+        "russian dressing",
+        "sauerkraut"
+      ],
+      "description": "Kevin's famous signature Ruben with slow cooked corned beef on house baked pumpernickel and grilled to perfection"
+    },
+    {
+      "name": "Meatball sub",
+      "ingredients": [
+        "hoagie",
+        "provolone cheese",
+        "meatballs",
+        "marinara sauce",
+        "parmigiano reggiano"
+      ],
+      "description": "Warm and cozy meatballs resting on a house baked hoagie with a blanket of provolone and sprinkled parm, then toasted in our bread oven"
     }
+  ],
+
+  "desserts": [
+    {
+      "name": "Kenn's Apple Pie",
+      "ingredients": [
+        "flour",
+        "butter",
+        "sugar",
+        "salt",
+        "apples",
+        "brown sugar",
+        "vanilla extract",
+        "cinnamon",
+        "nutmeg"
+      ],
+      "description": "Kenn's favorite treat made right here by his son Kevin.  Buttery and flaky crust filled with chunks of local apples and sweetness"
+    },
+    {
+      "name": "Gelato",
+      "ingredients": [
+        "chocolate",
+        "vanilla",
+        "salted caramel",
+        "cookies and cream",
+        "maple gold bar cookie"
+      ],
+      "description": "Locally made gelato by an old Italian lady named Francesca and her dog Gusiseppe"
+    }
+  ],
+
+  "drinks": [
+    {
+      "name": "Lemonade",
+      "ingredients": ["lemons", "sugar", "rocky mountain snowmelt"],
+      "description": "When life brings lemons, drink lots of lemonade made right here"
+    },
+    {
+      "name": "Ice T's Ice Tea",
+      "ingredients": ["black tea", "rocky mountain snowmelt", "lemon", "sugar"],
+      "description": "OG, the original gangsta ice tea with a touch of sugar"
+    }
+  ]
+}
