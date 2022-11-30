@@ -1,34 +1,16 @@
-{
-  "data": [
-    {
-      "name": "Steve",
-      "age": 20,
-      "isAlive": true,
-      "friends": ["john", "betty", "jake"],
-      "address": {
-        "street": "123 street",
-        "city": "SLC"
-      }
-    },
-    {
-      "name": "Steve",
-      "age": 20,
-      "isAlive": true,
-      "friends": ["john", "betty", "jake"],
-      "address": {
-        "street": "123 street",
-        "city": "SLC"
-      }
-    },
-    {
-      "name": "Steve",
-      "age": 20,
-      "isAlive": true,
-      "friends": ["john", "betty", "jake"],
-      "address": {
-        "street": "123 street",
-        "city": "SLC"
-      }
+   {
+    "appetizers": [
+
+        {
+            "name": "Small salad",
+            "ingredients": ["lettuce", "tomato", "cucumber", "carrot", "vinegrete"],
+            "description": "Mixed baby lettuces with veggies and house vinegrete dressing"
+      },
+
+        { 
+            "name": "Frencn onion soup",
+            "ingredients": ["beef based broth", "sweet onion", "bread", "gruyere cheese"],
+            "description": "House made slow cooked french onion soup the traditional way"
     }
-  ]
-}
+]
+    }
