@@ -1,0 +1,84 @@
+{
+    "name": "Leia Organa",
+    "height": "150",
+    "mass": "49",
+    "hair_color": "brown",
+    "skin_color": "light",
+    "eye_color": "brown",
+    "birth_year": "19BBY",
+    "gender": "female",
+    "homeworld": "https://swapi.dev/api/planets/2/",
+    "films": [
+        "https://swapi.dev/api/films/1/",
+        "https://swapi.dev/api/films/2/",
+        "https://swapi.dev/api/films/3/",
+        "https://swapi.dev/api/films/6/"
+    ],
+    "species": [],
+    "vehicles": [
+        "https://swapi.dev/api/vehicles/30/"
+    ],
+    "starships": [],
+    "created": "2014-12-10T15:20:09.791000Z",
+    "edited": "2014-12-20T21:17:50.315000Z",
+    "url": "https://swapi.dev/api/people/5/"
+}
+
+[
+    {
+        "completed": true,
+        "_id": "6388dd4818d1a05bceae8a7d",
+        "title": "I messed around with this Todo",
+        "description": "This is my awesome description",
+        "price": 9,
+        "sessionId": "kevinkobus",
+        "__v": 0
+    },
+    {
+        "completed": false,
+        "_id": "6388de7018d1a05bceae8a7f",
+        "title": "API's are cool",
+        "description": "I want to make my own API",
+        "price": 0,
+        "sessionId": "kevinkobus",
+        "__v": 0
+    },
+    {
+        "completed": true,
+        "_id": "6388e56118d1a05bceae8a80",
+        "title": "Learn Postman",
+        "description": "practice CRUD",
+        "sessionId": "kevinkobus",
+        "__v": 0
+    },
+    {
+        "completed": false,
+        "_id": "6388f03c18d1a05bceae8a87",
+        "title": "Work on V School curriculum",
+        "description": "This is not optional",
+        "price": 0,
+        "imgUrl": "http://path-to-url.jpg",
+        "sessionId": "kevinkobus",
+        "__v": 0
+    },
+    {
+        "completed": false,
+        "_id": "6388f07218d1a05bceae8a88",
+        "title": "Fold Laundry",
+        "description": "This is not fun",
+        "price": 100,
+        "imgUrl": "http://path-to-url.jpg",
+        "sessionId": "kevinkobus",
+        "__v": 0
+    },
+    {
+        "completed": false,
+        "_id": "6388f40718d1a05bceae8a89",
+        "title": "Clean bathroom",
+        "description": "I don't like to do this",
+        "price": 25,
+        "imgUrl": "http://path-to-url.jpg",
+        "sessionId": "kevinkobus",
+        "__v": 0
+    }
+]
