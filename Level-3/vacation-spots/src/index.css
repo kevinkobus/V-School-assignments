@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  background-color: aquamarine;
+}
+
+.root {
+  margin: auto;
+}
+
+.App {
+  max-width: 400px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 5px 5px;
+  align-content: center;
+}
+
+#card {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 325px;
+  transition-duration: .5s;
+  transition-timing-function: linear;
+}
+
+#card:hover {
+  border: 5px solid black;
+  border-radius: 30px;
+}
+
+.Spring {
+  background-color: #ffffcc;
+}
+
+.Summer {
+  background-color: #009900;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
+}
+
+.Fall {
+  background-color: #cc5200;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
+}
+
+.Winter {
+  background-color: #0059b3;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
+}
+
+.info-section {
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#place {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+#timeToGo {
+  font-size: 20px;;
+}
