@@ -24,7 +24,7 @@ body {
   border: 1px solid black;
   border-radius: 5px;
   width: 325px;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
   transition-timing-function: linear;
 }
 
@@ -68,5 +68,5 @@ body {
 }
 
 #timeToGo {
-  font-size: 20px;;
+  font-size: 20px;
 }

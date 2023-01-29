@@ -1,12 +1,16 @@
-import React from "react"
-import data from "./src/data"
+import React from "react";
 
 function Pets(props) {
-    return (
-        {/* <img src={props.pets.petImg} className="pet-pic" /> */}
-        <h2>{props.pets.name}</h2>
-        <h3>{props.pets.breed}</h3>
-    )
+  // console.log(props)
+  return (
+    <div className="pet-info">
+      <h3 id="pet-header">Pet</h3>
+      <ul className="pet-list">
+        <li>Name: {props.name}</li>
+        <li>Breed: {props.breed}</li>
+      </ul>
+    </div>
+  );
 }
 
-export default Pets
+export default Pets;

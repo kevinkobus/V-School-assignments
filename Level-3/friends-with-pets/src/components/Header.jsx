@@ -1,12 +1,11 @@
 import React from "react";
 
-function Navbar() {
+function Header() {
   return (
-    <nav className="navbar">
-      {/* <img src="" className=""></img> */}
+    <div className="header">
       <h3 className="page-title">Friends with Pets</h3>
-    </nav>
+    </div>
   );
 }
 
-export default Navbar
+export default Header;
