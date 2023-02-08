@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.dice-container {
+  border: 1px solid black;
+  border-radius: 7px;
+  background-color: #00994d;
+  height: 260px;
+  width: 80%;
+  margin: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dice {
+  border: 1px solid black;
+  border-radius: 10%;
+  background-color: #b3daff;
+  height: 180px;
+  width: 180px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.dot {
+  display: block;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+/* Dice with 1 dot */
+#dice-one {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dice with 2 dots */
+#dice-two {
+  display: flex;
+  justify-content: space-between;
+}
+
+#dice-two .dot:nth-of-type(2) {
+  align-self: flex-end;
+}
+
+/* Dice with 3 dots */
+#dice-three {
+  display: flex;
+  justify-content: space-between;
+}
+
+#dice-three .dot:nth-of-type(2) {
+  align-self: center;
+}
+
+#dice-three .dot:nth-of-type(3) {
+  align-self: flex-end;
+}
+
+/* Dice with 4 dots */
+#dice-four {
+  display: flex;
+  justify-content: space-between;
+}
+
+#dice-four .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Dice with 5 dots */
+#dice-five {
+  display: flex;
+  justify-content: space-between;
+}
+
+#dice-five .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#dice-five .column:nth-of-type(2) {
+  justify-content: center;
+}
+
+/* Dice with 6 dots */
+#dice-six {
+  display: flex;
+  justify-content: space-between;
+}
+
+#dice-six .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
