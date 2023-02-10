@@ -5,102 +5,39 @@
 }
 
 .dice-container {
-  border: 1px solid black;
   border-radius: 7px;
   background-color: #00994d;
-  height: 260px;
-  width: 80%;
+  height: 240px;
+  width: 85%;
   margin: 20px;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+}
+
+.dice-row {
+  display: flex;
+  justify-content: space-around;
 }
 
 .dice {
-  border: 1px solid black;
   border-radius: 10%;
-  background-color: #b3daff;
-  height: 180px;
-  width: 180px;
+  background-color: #4db8ff;
+  height: 100px;
+  width: 100px;
   margin: 10px;
   padding: 10px;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+
 }
 
-.dot {
-  display: block;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background-color: white;
-}
-
-/* Dice with 1 dot */
-#dice-one {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Dice with 2 dots */
-#dice-two {
-  display: flex;
-  justify-content: space-between;
-}
-
-#dice-two .dot:nth-of-type(2) {
-  align-self: flex-end;
-}
-
-/* Dice with 3 dots */
-#dice-three {
-  display: flex;
-  justify-content: space-between;
-}
-
-#dice-three .dot:nth-of-type(2) {
-  align-self: center;
-}
-
-#dice-three .dot:nth-of-type(3) {
-  align-self: flex-end;
-}
-
-/* Dice with 4 dots */
-#dice-four {
-  display: flex;
-  justify-content: space-between;
-}
-
-#dice-four .column {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Dice with 5 dots */
-#dice-five {
-  display: flex;
-  justify-content: space-between;
-}
-
-#dice-five .column {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-#dice-five .column:nth-of-type(2) {
-  justify-content: center;
-}
-
-/* Dice with 6 dots */
-#dice-six {
-  display: flex;
-  justify-content: space-between;
-}
-
-#dice-six .column {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+button {
+  background-color: #b3e0ff;
+  border-color: gray;
+  height: 50px;
+  width: 10%;
+  margin-top: 10px;
 }
