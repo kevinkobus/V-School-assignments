@@ -10,7 +10,9 @@ function App() {
     <Box key={square.id} on={square.on} />
   ));
 
-  return <main className="box-container">{squareElements}</main>;
+  return <main className="box-container">{squareElements}
+            
+          </main>;
 }
 
 export default App;
