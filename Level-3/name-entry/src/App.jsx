@@ -7,26 +7,16 @@ function App() {
   const [nameList, setNameList] = useState(["Somebody", "Somebody else"]);
 
   function handleChange(event) {
-    const { name, value } = event.target;
-    setNewName((prevNewName) => {
-      return {
-        ...prevNewName,
-        [name]: value,
-      };
-    });
+    setNewName(event.target.value)    
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    setNameList((prevNameList) => {
-      return {
-        ...prevNameList,
-        newName,
-      };
-    });
+    setNameList(prevNameList => [...prevNameList, newName])
+    setNewName("")
   }
 
-const peopleList = nameList.map(person => <li key={person}>{person}</li>)
+  const people = nameList.map((person, id) => <li key={id}>{person}</li>);
 
   return (
     <div className="App">
@@ -34,17 +24,15 @@ const peopleList = nameList.map(person => <li key={person}>{person}</li>)
         <input
           className="form-input"
           type="text"
-          placeholder="Enter Full Name"
+          placeholder="Enter full name"
           name="name"
           onChange={handleChange}
           value={newName}
         />
-        <button className="form-submit">Submit</button>
+        <button className="form-submit">Add Name</button>
       </form>
-      <h1>{}</h1>
-      <ol>
-        {peopleList}
-      </ol>
+      <h1>{newName}</h1>
+      <ol>{people}</ol>
     </div>
   );
 }
