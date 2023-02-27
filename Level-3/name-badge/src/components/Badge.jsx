@@ -1,6 +1,6 @@
 import React from "react";
 
-function Badge() {
+function Badge(props) {
   return (
     <main className="badge-container">
       <header className="badge-header">
@@ -8,28 +8,31 @@ function Badge() {
       </header>
       <div className="badge-info">
         <div className="info" id="name">
-          Name:{" "}
+          {`Name: ${props.person.firstName} ${props.person.lastName}`}
         </div>
 
         <div className="info" id="phone">
-          Phone:{" "}
+          Phone: {props.person.phone}
         </div>
 
         <div className="info" id="placeOfBirth">
-          Place of Birth:{" "}
+          Place of Birth: {props.person.placeOfBirth}
         </div>
 
         <div className="info" id="favoriteFood">
-          Favorite food:{" "}
+          Favorite food: {props.person.favoriteFood}
         </div>
 
         <div className="info" id="email">
-          Email:{" "}
+          Email: {props.person.email}
         </div>
 
-        <div className="info" id="comments"></div>
+        <textarea className="info" id="badgeComments">
+          {props.person.comments}
+        </textarea>
       </div>
     </main>
+    
   );
 }
 

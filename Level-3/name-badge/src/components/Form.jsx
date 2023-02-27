@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Badge from "./Badge";
 
 function Form() {
   const [badgeData, setBadgeData] = useState({
@@ -11,6 +12,19 @@ function Form() {
     comments: "",
   });
 
+  const [badgeList, setBadgeList] = useState([]);
+
+  const emptyBadgeData = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    placeOfBirth: "",
+    phone: "",
+    favoriteFood: "",
+    comments: "",
+  };
+
+  //   function for capturing changes to form inputs
   function handleChange(event) {
     const { name, value } = event.target;
     setBadgeData((prevBadgeData) => {
@@ -18,11 +32,26 @@ function Form() {
     });
   }
 
-  console.log(badgeData);
+  //   console.log(badgeData);
+
+  //   function for submital of form
+  function handleSubmit(event) {
+    event.preventDefault();
+    // console.log(badgeData)
+    setBadgeList((prevBadgeList) => {
+      return [...prevBadgeList, badgeData];
+    });
+    setBadgeData(emptyBadgeData);
+    console.log('badgeList:', badgeList)
+  }
+
+  const displayBadges = badgeList.map((person) => {
+    return <Badge key={person.id} person={person} />;
+  });
 
   return (
     <main className="form-container">
-      <form className="badge-form">
+      <form className="badge-form" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="First Name"
@@ -64,8 +93,8 @@ function Form() {
           placeholder="Phone"
           id="phone"
           name="phone"
-          minLength="3"
-          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          minLength="9"
+          maxLength="10"
           required
           onChange={handleChange}
           value={badgeData.phone}
@@ -89,6 +118,8 @@ function Form() {
         />
         <button>Submit</button>
       </form>
+      <br />
+      {displayBadges}
     </main>
   );
 }
