@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+.border {
+  height: 200px;
+  width: 50%;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+}
+
+.color-container {
+  border: 1px solid black;
+  height: 200px;
+  width: 50%;
+}
+
+button {
+  height: 50px;
+  width: 100px;
+  margin-left: 10px;
+  font-size: 18px;
+  align-self: center;
+}
