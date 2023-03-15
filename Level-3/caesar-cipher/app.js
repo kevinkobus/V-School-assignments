@@ -4,11 +4,14 @@ var input = readline
   .question("What phrase would you like to encrypt? ")
   .toLowerCase();
 
-  console.log("Your phrase is: " + input)
-
 var shift = parseInt(
   readline.question("How many letters would you like to shift? ")
-);
 
-console.log("You would like to shift: " + shift + " letters")
+function encrypt(input, shift) {
+    const alphabet = [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z]
+    let encryptedStr = ""
+    
 
+     
+        
+    }
