@@ -5,19 +5,23 @@
 body {
   font-family: "Karla", sans-serif;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 main {
-  padding: 36px;
+  outline: 1px solid green;
 }
 
 .header {
   display: flex;
   align-items: center;
   height: 65px;
-  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+  background: linear-gradient(90deg, #672280 1.18%, #a626d3 100%);
   color: white;
   padding: 20px;
+  position: relative;
 }
 
 .header--image {
@@ -45,7 +49,7 @@ main {
 .form--input {
   font-family: "Karla", sans-serif;
   border-radius: 5px;
-  border: 1px solid #D5D4D8;
+  border: 1px solid #d5d4d8;
   text-indent: 5px;
 }
 
@@ -53,18 +57,17 @@ main {
   grid-column: 1 / -1;
   font-family: "Karla", sans-serif;
   border-radius: 5px;
-  background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+  background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
   color: white;
   border: none;
   cursor: pointer;
-  
 }
 
 .save-button {
   grid-column: 1 / -1;
   font-family: "Karla", sans-serif;
   border-radius: 5px;
-  background: linear-gradient(90.41deg, #875f94 1.14%, #A818DA 100%);
+  background: linear-gradient(90.41deg, #875f94 1.14%, #a818da 100%);
   color: white;
   border: none;
   cursor: pointer;
@@ -78,9 +81,20 @@ main {
 }
 
 .meme--image {
+  display: flex;
   max-width: 100%;
   border-radius: 3px;
-  justify-self: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.meme-list-image {
+  height: 350px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 .meme--text {
@@ -96,22 +110,19 @@ main {
   text-transform: uppercase;
   color: white;
   letter-spacing: 1px;
-  text-shadow:
-      2px 2px 0 #000,
-      -2px -2px 0 #000,
-      2px -2px 0 #000,
-      -2px 2px 0 #000,
-      0 2px 0 #000,
-      2px 0 0 #000,
-      0 -2px 0 #000,
-      -2px 0 0 #000,
-      2px 2px 5px #000;
+  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000,
+    -2px 2px 0 #000, 0 2px 0 #000, 2px 0 0 #000, 0 -2px 0 #000, -2px 0 0 #000,
+    2px 2px 5px #000;
 }
 
 .meme-list {
   max-width: 100%;
   border-radius: 3px;
-  justify-self: center;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  outline: 1px solid red;
+  align-items: center;
 }
 
 .bottom {
@@ -120,4 +131,9 @@ main {
 
 .top {
   top: 0;
+}
+
+.edit-button {
+  display: block;
+  width: 50px;
 }

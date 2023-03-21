@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function Meme() {
   const [meme, setMeme] = useState({
@@ -7,16 +8,15 @@ function Meme() {
     randomImage: "http://i.imgflip.com/1bij.jpg",
   });
   const [allMemes, setAllMemes] = useState([]);
-  const [listMemes, setListMemes] = useState([])
- 
+  const [listMemes, setListMemes] = useState([]);
 
- 
-
+  // useEffect function with axios get request to pull top 100 meme images from api
   useEffect(() => {
-    fetch("https://api.imgflip.com/get_memes")
-      .then((res) => res.json())
-      .then((data) => setAllMemes(data.data.memes));
-      // console.log(meme)
+    axios
+      .get("https://api.imgflip.com/get_memes")
+      // .then((response) => console.log(response.data.data.memes))
+      .then((response) => setAllMemes(response.data.data.memes))
+      .catch((error) => console.log(error));
   }, []);
 
   function getMemeImage() {
@@ -36,6 +36,18 @@ function Meme() {
     }));
   }
 
+  function handleEdit(event) {
+    const memeIndex = event.target.dataset.index;
+    const meme = listMemes[memeIndex];
+    setMeme(meme);
+    setListMemes((prevMemes) => {
+      return listMemes.filter((value, idx) => {
+        console.log(idx != memeIndex);
+        return idx != memeIndex;
+      });
+    });
+  }
+
   function savedList(event) {
     event.preventDefault();
     setListMemes((prevListMemes) => {
@@ -47,16 +59,18 @@ function Meme() {
       randomImage: "http://i.imgflip.com/1bij.jpg",
     });
   }
-  console.log(listMemes)
+  console.log(listMemes);
 
   const displayMemes = listMemes.map((meme, index) => (
- <div className="meme-list" key={index}>
-        <img src={meme.randomImage} className="meme--image" />
-        <h2 className="meme--text top">{meme.topText}</h2>
-        <h2 className="meme--text bottom">{meme.bottomText}</h2>  
-      </div>))
-
-
+    <div className="meme-list" key={index}>
+      <img src={meme.randomImage} className="meme-list-image" />
+      <h2 className="meme--text top">{meme.topText}</h2>
+      <h2 className="meme--text bottom">{meme.bottomText}</h2>
+      <button className="edit-button" data-index={index} onClick={handleEdit}>
+        Edit
+      </button>
+    </div>
+  ));
 
   return (
     <main>
@@ -80,17 +94,18 @@ function Meme() {
         <button className="form--button" onClick={getMemeImage}>
           Get a new meme image 🖼
         </button>
-        <button className="save-button" onClick={savedList}>Save meme</button>
+        <button className="save-button" onClick={savedList}>
+          Save meme
+        </button>
       </div>
       <div className="meme">
         <img src={meme.randomImage} className="meme--image" />
-        {/* <h2 className="meme--text top">{meme.topText}</h2>
-        <h2 className="meme--text bottom">{meme.bottomText}</h2>   */}
+        <h2 className="meme--text top">{meme.topText}</h2>
+        <h2 className="meme--text bottom">{meme.bottomText}</h2>
       </div>
       <div className="memes-container">{displayMemes}</div>
-    
     </main>
   );
 }
 
-export default Meme
+export default Meme;
