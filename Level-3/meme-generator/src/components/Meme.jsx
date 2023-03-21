@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+// function to set state for memes that display in preview
 function Meme() {
   const [meme, setMeme] = useState({
     topText: "",
     bottomText: "",
     randomImage: "http://i.imgflip.com/1bij.jpg",
   });
+
+  // setting state for memes when received from api
   const [allMemes, setAllMemes] = useState([]);
   const [listMemes, setListMemes] = useState([]);
 
@@ -19,6 +22,7 @@ function Meme() {
       .catch((error) => console.log(error));
   }, []);
 
+  // function to pick a random meme from array of memes in state
   function getMemeImage() {
     const randomNumber = Math.floor(Math.random() * allMemes.length);
     const url = allMemes[randomNumber].url;
@@ -28,6 +32,7 @@ function Meme() {
     }));
   }
 
+  // function to handle changes to input fields
   function handleChange(event) {
     const { name, value } = event.target;
     setMeme((prevMeme) => ({
@@ -36,6 +41,7 @@ function Meme() {
     }));
   }
 
+  // function to handle edit to memes in list
   function handleEdit(event) {
     const memeIndex = event.target.dataset.index;
     const meme = listMemes[memeIndex];
@@ -48,6 +54,7 @@ function Meme() {
     });
   }
 
+  // function to save meme to list below preview
   function savedList(event) {
     event.preventDefault();
     setListMemes((prevListMemes) => {
@@ -59,8 +66,9 @@ function Meme() {
       randomImage: "http://i.imgflip.com/1bij.jpg",
     });
   }
-  console.log(listMemes);
+  // console.log(listMemes);
 
+  // mapping through memes saved in state to display them to the list with edit/delete
   const displayMemes = listMemes.map((meme, index) => (
     <div className="meme-list" key={index}>
       <img src={meme.randomImage} className="meme-list-image" />
@@ -72,6 +80,7 @@ function Meme() {
     </div>
   ));
 
+  // rendering of elements to the DOM
   return (
     <main>
       <div className="form">
