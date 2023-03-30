@@ -12,6 +12,7 @@ function Meme() {
   // setting state for memes when received from api
   const [allMemes, setAllMemes] = useState([]);
   const [listMemes, setListMemes] = useState([]);
+  const [isEditing, setIsEditing] = useState(false)
 
   // useEffect function with axios get request to pull top 100 meme images from api
   useEffect(() => {
@@ -43,16 +44,26 @@ function Meme() {
 
   // function to handle edit to memes in list
   function handleEdit(event) {
-    const memeIndex = event.target.dataset.index;
-    const meme = listMemes[memeIndex];
-    setMeme(meme);
-    setListMemes((prevMemes) => {
-      return listMemes.filter((value, idx) => {
-        console.log(idx != memeIndex);
-        return idx != memeIndex;
-      });
-    });
+    setIsEditing(!isEditing)
+    // console.log(event.target.dataset.index) 
+    // const memeIndex = event.target.dataset.index;
+    // const meme = listMemes[memeIndex];
+    // setMeme(meme);
+    // setListMemes((prevMemes) => {
+    //   return listMemes.filter((value, idx) => {
+    //     console.log(idx != memeIndex);
+    //     return idx != memeIndex;
+    //   });
+    // });
   }
+function handleDelete(index) {
+  // console.log(index)
+  setListMemes(listMemes.filter((meme, pos)=> {
+    return index !== pos
+  }))
+}
+
+// pos = index position
 
   // function to save meme to list below preview
   function savedList(event) {
@@ -72,11 +83,14 @@ function Meme() {
   const displayMemes = listMemes.map((meme, index) => (
     <div className="meme-list" key={index}>
       <img src={meme.randomImage} className="meme-list-image" />
-      <h2 className="meme--text top">{meme.topText}</h2>
-      <h2 className="meme--text bottom">{meme.bottomText}</h2>
+      { isEditing ? <input placeholder="top text"/> : <h2 className="meme--text top">{meme.topText}</h2>}
+      { isEditing ? <input placeholder="btm text" /> : <h2 className="meme--text bottom">{meme.bottomText}</h2>}
       <button className="edit-button" data-index={index} onClick={handleEdit}>
-        Edit
+        {isEditing ? "Save" : "Edit"}
       </button>
+      <button className="delete-btn" onClick={() => handleDelete(index)}>
+        Delete
+      </button>)
     </div>
   ));
 
