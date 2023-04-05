@@ -1,0 +1,53 @@
+.light-theme {
+  background-color: #cfcfcf;
+  color: #000;
+}
+
+.dark-theme {
+  background-color: #3a3b3c;
+  color: #fff;
+}
+
+.navbar {
+    border: 1px solid black;
+}
+
+.navbar-list {
+  list-style-type: none;
+  font-size: 30px;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  color: #555555;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  column-gap: 10px;
+}
+
+.navbar-item {
+  box-shadow: 4px 4px 4px 1px #72a0c1;
+  background-color: #f0f8ff;
+  text-align: center;
+  flex-grow: 5;
+}
+
+.body-container {
+    border: 1px solid black;
+    height: 400px;
+}
+
+.btn {
+    background-color: aqua;
+}
+
+.footer {
+    border: 1px solid black;
+}
+
+.footer-list {
+    border: 1px solid red;
+    list-style-type: none;
+}
+
+.footer-item {
+    border: 1px solid green;
+}
