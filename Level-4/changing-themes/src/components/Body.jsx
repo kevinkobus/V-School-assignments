@@ -1,11 +1,13 @@
-import React from "react"
+import React, { useContext } from "react";
+import { ThemeContext } from "./ThemeContext";
 
 function Body() {
 
+    const { color, toggleTheme } = useContext(ThemeContext);
+
     return (
-        <div className="body-container">
-            Body goes here!
-            <button className="btn">Click me if you're comfortable with change</button>
+        <div className={`${color}-theme`} id="body-container">
+            <button className="btn" onClick={toggleTheme}>Click me if you're comfortable with change</button>
         </div>
     )
 }
