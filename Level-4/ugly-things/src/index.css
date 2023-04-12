@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.green-theme {
+  background-color: #004225;
+  font-family: 'DynaPuff', cursive;
+  font-size: 20px;
+  color: white;
+  height: 85px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.red-theme {
+  background-color: #F70D1A;
+  font-family: 'DynaPuff', cursive;
+  font-size: 20px;
+  color: #FFF200;
+  height: 85px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header-green {
+  background-color: #004225;
+  font-family: 'DynaPuff', cursive;
+  font-size: 20px;
+  color: white;
+  height: 85px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header-red {
+  background-color: #F70D1A;
+  font-family: 'DynaPuff', cursive;
+  font-size: 20px;
+  color: #FFF200;
+  height: 85px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.theme-btn-green,
+.theme-btn-red {
+  background-color: rgb(124, 122, 122);
+  color: white;
+  font-size: large;
+  padding: 3px;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+:hover.theme-btn-green {
+  cursor: pointer;
+  background-color: #F70D1A;
+  color: #FFF200;
+}
+
+:hover.theme-btn-red {
+  cursor: pointer;
+  background-color: #004225;
+  color: white;
+}
+
+.form-card {
+  display: flex;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  margin: 15px;
+  height: 30px;
+  width: auto;
+  padding: 1px;
+  font-size: large;
+}
+
+.ugly-card {
+  margin-top: 10px;
+}
+
+.submit-btn-red,
+.submit-btn-green {
+  cursor: pointer;
+  background-color: rgb(124, 122, 122);
+  color: white;
+  font-size: large;
+  width: 90px;
+  height: 30px;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+:hover.submit-btn-green {
+  background-color: #004225;
+  color: white;
+}
+
+:hover.submit-btn-red {
+  background-color: #F70D1A;
+  color: #FFF200;
+}
+
+.footer-green {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #004225;
+  color: white;
+  padding: 10px;
+}
+
+.footer-red {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #F70D1A;
+  color: #FFF200;
+  padding: 10px;
+}

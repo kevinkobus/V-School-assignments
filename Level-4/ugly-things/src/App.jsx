@@ -1,21 +1,21 @@
-import React from 'react'
-import Header from "./components/Header"
-import Inputs from "./components/Inputs"
-import Card from "./components/Card"
-import Footer from "./components/Footer"
-// import Context from "./components/Context"
-
+import React from "react";
+import Header from "./components/Header";
+import InputsForm from "./components/InputsForm";
+import CardList from "./components/CardList";
+import Footer from "./components/Footer";
+import { ContextProvider } from "./components/Context";
 
 function App() {
-
   return (
     <div className="App">
-      <Header />
-      <Inputs />
-      <Card />
-      <Footer />
+      <ContextProvider>
+        <Header />
+        <InputsForm />
+        <CardList />
+        <Footer />
+      </ContextProvider>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
