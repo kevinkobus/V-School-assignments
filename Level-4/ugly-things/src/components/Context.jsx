@@ -2,50 +2,52 @@ import React, { useEffect, useState, createContext } from "react";
 import axios from "axios";
 
 //context hold axios requests as well as objects functions manipulations.
-const UglyContext = createContext();
+const Context = createContext();
 
 //form state
 function ContextProvider(props) {
 
-  // const [uglyThing, setUglyThing] = useState({
-  //   title: "",
-  //   imgUrl: "",
-  //   description: "",
-  // });
+  const [uglyThing, setUglyThing] = useState({
+    title: "",
+    imgUrl: "",
+    description: "",
+  });
 
-  // const [uglyArray, setUglyArray] = useState([]);
+  const [uglyCarArray, setUglyCarArray] = useState([]);
+
   // const [editMode, setEditMode] = useState(false);
+
   // const [editOption, setEditOption] = useState({
   //   title: "",
   //   description: "",
   // });
 
-  // //handles the change of state
-  // function handleChange(event) {
-  //   const { name, value } = event.target;
-  //   setUglyThing((prevState) => ({
-  //     ...prevState,
-  //     [name]: value,
-  //   }));
-  //   // console.log(uglyThing)
-  // }
+  //Function to handle state of form
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setUglyThing((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+    // console.log(uglyThing)
+  }
 
-  // //function that adds things to an array of uglies
-  // function addUgly() {
-  //   setUglyArray((prevState) => {
-  //     return [...prevState, uglyThing];
-  //   });
-  // }
+  //Function that adds car to array of ugly cars
+  function addUgly() {
+    setUglyArray((prevState) => {
+      return [...prevState, uglyThing];
+    });
+  }
 
-  // //onClick form will handle Submit function to post a new ugly thing to an API
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   addUgly();
-  //   axios
-  //     .post("https://api.vschool.io/kevinkobus/thing", uglyThing)
-  //     .then((res) => console.log(res.data))
-  //     .catch((err) => console.log(err));
-  // }
+  //Function to post a new ugly thing to the API
+  function handleSubmit(e) {
+    e.preventDefault();
+    addUgly();
+    axios
+      .post("https://api.vschool.io/kevinkobus/thing", uglyThing)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+  }
 
   // //Delete request to delete a card from the list
   // function handleDelete(id) {
@@ -55,21 +57,21 @@ function ContextProvider(props) {
   //     .catch((err) => console.log(err));
   // }
 
-  // //Get request
-  // function getUglyThings() {
-  //   axios
-  //     .get("https://api.vschool.io/kevinkobus/thing")
-  //     .then((res) => {
-  //       setUglyArray(res.data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }
+  //Get request
+  function getUglyThings() {
+    axios
+      .get("https://api.vschool.io/kevinkobus/thing")
+      .then((res) => {
+        setUglyArray(res.data);
+      })
+      .catch((err) => console.log(err));
+  }
 
-  // useEffect(() => {
-  //   getUglyThings();
-  // }, []);
+  useEffect(() => {
+    getUglyThings();
+  }, []);
 
-  // //Put request to edit an existing card's info
+  // // Put request to edit an existing card's info
   // function handleEdit(id, editUgly) {
   //   axios
   //     .put(`https://api.vschool.io/kevinkobus/thing/${id}`, editUgly)
@@ -78,40 +80,40 @@ function ContextProvider(props) {
   //     .catch((err) => console.log(err));
   // }
 
-  // function handleEditChange(event) {
-  //   const { name, value } = event.target;
-  //   setEditOption(true);
-  //   setEditData((prevState) => {
-  //     return {
-  //       ...prevState,
-  //       [name]: value,
-  //     };
-  //   });
-  // }
+  function handleEditChange(event) {
+    const { name, value } = event.target;
+    setEditOption(true);
+    setEditData((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+      };
+    });
+  }
 
   const [colorTheme, setColorTheme] = useState("green")
 
   const toggleTheme = () => {
-    setColorTheme((prevColor) => (prevColor === "red" ? "green" : "red"));
+    setColorTheme((prevTheme) => (prevTheme === "red" ? "green" : "red"));
   };
 
   return (
-    <UglyContext.Provider
+    <Context.Provider
       value={{
-        // uglyThing,
-        // uglyArray,
-        // handleChange,
-        // handleSubmit,
-        // handleDelete,
-        // handleEdit,
-        // handleEditChange,
+        uglyThing,
+        uglyCarArray,
+        handleChange,
+        handleSubmit,
+        handleDelete,
+        handleEdit,
+        handleEditChange,
         colorTheme: colorTheme,
         toggleTheme: toggleTheme,
       }}
     >
       {props.children}
-    </UglyContext.Provider>
+    </Context.Provider>
   );
 }
 
-export { ContextProvider, UglyContext };
+export { ContextProvider, Context };

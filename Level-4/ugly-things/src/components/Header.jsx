@@ -1,8 +1,8 @@
 import React from "react";
-import { UglyContext } from "./Context";
+import { Context } from "./Context";
 
-function Header() {
-  const { colorTheme, toggleTheme } = useContext(UglyContext);
+function Header(props) {
+  const { colorTheme, toggleTheme } = useContext(Context);
 
   return (
     <div className={`${color}-theme`} id="header">

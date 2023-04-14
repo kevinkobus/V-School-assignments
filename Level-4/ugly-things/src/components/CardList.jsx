@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import Card from "./Card";
-import { UglyContext } from "./Context";
+import { Context } from "./Context";
 
-function CardList() {
-  const { uglyArray } = useContext(UglyContext);
+function CardList(props) {
+  const { uglyArray } = useContext(Context);
 
   return (
     <div>
-      {uglyArray.map((item) => {
+      {uglyCarArray.map((item) => {
         return (
           <Card
             key={item.id}

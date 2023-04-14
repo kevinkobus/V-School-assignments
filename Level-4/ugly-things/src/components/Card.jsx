@@ -1,5 +1,5 @@
 import React from "react";
-import { UglyContext } from "./Context";
+import { Context } from "./Context";
 
 function Card(props) {
 
