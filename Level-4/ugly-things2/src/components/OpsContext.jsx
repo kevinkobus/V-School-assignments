@@ -3,7 +3,7 @@
 // Also holds state and edit/delete functionality for Card and CardList components
 
 import React, { useEffect, useState, createContext } from "react";
-// import axios from "axios";
+import axios from "axios";
 
 const OpsContext = createContext();
 
@@ -35,18 +35,18 @@ function OpsContextProvider(props) {
   }
 
   //Function for axios GET request to pull from the API
-//   function getUglyCars() {
-//     axios
-//       .get("https://api.vschool.io/kevinkobus/thing")
-//       .then((res) => {
-//         setUglyCarArr(res.data);
-//       })
-//       .catch((err) => console.log(err));
-//   }
+  function getUglyCars() {
+    axios
+      .get("https://api.vschool.io/kevinkobus/thing")
+      .then((res) => {
+        setUglyCarArr(res.data);
+      })
+      .catch((err) => console.log(err));
+  }
 
-//   useEffect(() => {
-//     getUglyCars();
-//   }, []);
+  useEffect(() => {
+    getUglyCars();
+  }, []);
 
   //Function to POST a new uglyCar to API
   function handleSubmit(e) {

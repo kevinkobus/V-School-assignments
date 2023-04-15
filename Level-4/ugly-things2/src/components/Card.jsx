@@ -13,7 +13,7 @@ function Card(props) {
         <div className="card-container">
             <div className="ugly-car-card">
                 <h1 className="card-title">{uglyCar.title}</h1>
-                <img src={uglyCar.imgUrl} alt="ugly car image" />
+                <img src={uglyCar.imgUrl} alt="ugly car image" className="ugly-car-pic" />
                 <h2 className="card-description">{uglyCar.description}</h2>
             </div>
             <button className="delete-btn">Delete</button>

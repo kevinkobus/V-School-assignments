@@ -88,7 +88,7 @@
     font-size: large;
   }
   
-  .ugly-card {
+  .ugly-car-card {
     margin-top: 10px;
   }
   
@@ -114,6 +114,11 @@
     color: #FFF200;
   }
   
+.ugly-car-pic {
+  height: 130px;
+  width: auto;
+}
+
   .green-footer {
     text-align: center;
     font-size: 18px;
