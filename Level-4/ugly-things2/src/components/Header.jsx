@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
 
 function Header(props) {
+  
   const { color, toggleTheme } = useContext(ThemeContext);
 
   return (

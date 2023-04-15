@@ -1,5 +1,6 @@
 // Component for form/input portion of app
-// Pulls in ThemeContext and OpsContext to
+// Pulls in ThemeContext so submit button changes with theme
+// Pulls in OpsContext for form state, changes to form, and submit of form
 
 import React, { useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
@@ -7,12 +8,11 @@ import { OpsContext } from "./OpsContext"
 
 function Form(props) {
   const { color } = useContext(ThemeContext);
-  const { uglyCar, handleChange } = useContext(OpsContext)
+  const { uglyCar, handleChange, handleSubmit } = useContext(OpsContext)
 
   return (
     <div className="form-container">
-      <form className="form">
-      {/* <form onSubmit={handleSubmit}> */}
+      <form onSubmit={handleSubmit}>
         <input
             className="input" 
             input="text"

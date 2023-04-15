@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import Form from "./components/Form";
+import Card from "./components/Card"
 // import CardList from "./components/CardList";
 import Footer from "./components/Footer";
 import { ThemeContextProvider } from "./components/ThemeContext";
@@ -13,6 +14,7 @@ function App() {
         <Header />
         <OpsContextProvider>
           <Form />
+          <Card />
         </OpsContextProvider>
         <Footer />
       </ThemeContextProvider>
