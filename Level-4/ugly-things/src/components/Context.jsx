@@ -1,11 +1,10 @@
 import React, { useEffect, useState, createContext } from "react";
 import axios from "axios";
 
-//context hold axios requests as well as objects functions manipulations.
 const Context = createContext();
 
 //form state
-function ContextProvider(props) {
+
 
   const [uglyThing, setUglyThing] = useState({
     title: "",

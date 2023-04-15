@@ -1,17 +1,19 @@
 import React from "react";
-// import "./App.css";
 import Header from "./components/Header";
-// import InputsForm from "./components/InputsForm";
+import Form from "./components/Form";
 // import CardList from "./components/CardList";
 import Footer from "./components/Footer";
 import { ThemeContextProvider } from "./components/ThemeContext";
-// import { ContextProvider } from "./components/Context";
+import { OpsContextProvider } from "./components/OpsContext";
 
 function App() {
   return (
     <div className="App">
       <ThemeContextProvider>
         <Header />
+        <OpsContextProvider>
+          <Form />
+        </OpsContextProvider>
         <Footer />
       </ThemeContextProvider>
     </div>
