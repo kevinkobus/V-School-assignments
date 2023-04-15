@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* .green-theme {
+    background-color: #004225;
+    font-family: 'DynaPuff', cursive;
+    font-size: 20px;
+    color: white;
+    height: 85px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .red-theme {
+    background-color: #F70D1A;
+    font-family: 'DynaPuff', cursive;
+    font-size: 20px;
+    color: #FFF200;
+    height: 85px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  } */
+  
+  .green-header {
+    background-color: #004225;
+    font-family: 'DynaPuff', cursive;
+    font-size: 20px;
+    color: white;
+    height: 85px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .red-header {
+    background-color: #F70D1A;
+    font-family: 'DynaPuff', cursive;
+    font-size: 20px;
+    color: #FFF200;
+    height: 85px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .green-theme-btn,
+  .red-theme-btn {
+    background-color: rgb(124, 122, 122);
+    color: white;
+    font-size: large;
+    padding: 3px;
+    border-style: solid;
+    border-radius: 5px;
+  }
+  
+  :hover.green-theme-btn {
+    cursor: pointer;
+    background-color: #F70D1A;
+    color: #FFF200;
+  }
+  
+  :hover.red-theme-btn {
+    cursor: pointer;
+    background-color: #004225;
+    color: white;
+  }
+  
+  .form-card {
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .input {
+    margin: 15px;
+    height: 30px;
+    width: auto;
+    padding: 1px;
+    font-size: large;
+  }
+  
+  .ugly-card {
+    margin-top: 10px;
+  }
+  
+  .red-submit-btn,
+  .green-submit-btn {
+    cursor: pointer;
+    background-color: rgb(124, 122, 122);
+    color: white;
+    font-size: large;
+    width: 90px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 5px;
+  }
+  
+  :hover.green-submit-btn {
+    background-color: #004225;
+    color: white;
+  }
+  
+  :hover.red-submit-btn{
+    background-color: #F70D1A;
+    color: #FFF200;
+  }
+  
+  .green-footer {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #004225;
+    color: white;
+    padding: 10px;
+  }
+  
+  .red-footer {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #F70D1A;
+    color: #FFF200;
+    padding: 10px;
+  }

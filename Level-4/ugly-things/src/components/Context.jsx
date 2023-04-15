@@ -91,11 +91,6 @@ function ContextProvider(props) {
     });
   }
 
-  const [colorTheme, setColorTheme] = useState("green")
-
-  const toggleTheme = () => {
-    setColorTheme((prevTheme) => (prevTheme === "red" ? "green" : "red"));
-  };
 
   return (
     <Context.Provider
@@ -107,8 +102,6 @@ function ContextProvider(props) {
         handleDelete,
         handleEdit,
         handleEditChange,
-        colorTheme: colorTheme,
-        toggleTheme: toggleTheme,
       }}
     >
       {props.children}
