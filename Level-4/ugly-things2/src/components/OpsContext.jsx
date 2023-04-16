@@ -22,7 +22,7 @@ function OpsContextProvider(props) {
       ...prevState,
       [name]: value,
     }));
-    console.log(uglyCar);
+    // console.log(uglyCar);
   }
   // Setting state for array of ugly cars
   const [uglyCarArr, setUglyCarArr] = useState([]);
@@ -43,6 +43,8 @@ function OpsContextProvider(props) {
       })
       .catch((err) => console.log(err));
   }
+
+  console.log(uglyCarArr)
 
   useEffect(() => {
     getUglyCars();

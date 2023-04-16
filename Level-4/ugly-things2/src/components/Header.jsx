@@ -7,7 +7,7 @@ function Header(props) {
 
   return (
     <div className={`${color}-header`} id="header">
-      <h1 className="title">Beauty is in the eye of the beholder</h1>
+      <h1 className="title">Ugly Cars - Beauty is in the eye of the beholder</h1>
       <button
         className={`${color}-theme-btn`}
         id="theme-btn"

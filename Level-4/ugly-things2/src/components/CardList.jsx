@@ -8,13 +8,13 @@ function CardList(props) {
     
   const { uglyCarArr } = useContext(OpsContext);
 
-  const uglyCarList = uglyCarArr.map((data) => (
+  const uglyCarList = uglyCarArr.map((car) => (
     <Card
-      data={data}
-      key={data.id}
-      title={data.title}
-      description={data.description}
-      imgUrl={data.imgUrl}
+      car={car}
+      key={car._id}
+      title={car.title}
+      description={car.description}
+      imgUrl={car.imgUrl}
     />
   ));
 

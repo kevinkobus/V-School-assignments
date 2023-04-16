@@ -1,9 +1,9 @@
 * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* .green-theme {
+  margin: 0;
+  padding: 0;
+}
+
+/* .green-theme {
     background-color: #004225;
     font-family: 'DynaPuff', cursive;
     font-size: 20px;
@@ -26,115 +26,144 @@
     justify-content: space-around;
     align-items: center;
   } */
-  
-  .green-header {
-    background-color: #004225;
-    font-family: 'DynaPuff', cursive;
-    font-size: 20px;
-    color: white;
-    height: 85px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  .red-header {
-    background-color: #F70D1A;
-    font-family: 'DynaPuff', cursive;
-    font-size: 20px;
-    color: #FFF200;
-    height: 85px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  .green-theme-btn,
-  .red-theme-btn {
-    background-color: rgb(124, 122, 122);
-    color: white;
-    font-size: large;
-    padding: 3px;
-    border-style: solid;
-    border-radius: 5px;
-  }
-  
-  :hover.green-theme-btn {
-    cursor: pointer;
-    background-color: #F70D1A;
-    color: #FFF200;
-  }
-  
-  :hover.red-theme-btn {
-    cursor: pointer;
-    background-color: #004225;
-    color: white;
-  }
-  
-  .form {
-    display: flex;
-    margin: 20px;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .input {
-    margin: 15px;
-    height: 30px;
-    width: auto;
-    padding: 1px;
-    font-size: large;
-  }
-  
-  .ugly-car-card {
-    margin-top: 10px;
-  }
-  
-  .red-submit-btn,
-  .green-submit-btn {
-    cursor: pointer;
-    background-color: rgb(124, 122, 122);
-    color: white;
-    font-size: large;
-    width: 90px;
-    height: 30px;
-    border-style: solid;
-    border-radius: 5px;
-  }
-  
-  :hover.green-submit-btn {
-    background-color: #004225;
-    color: white;
-  }
-  
-  :hover.red-submit-btn{
-    background-color: #F70D1A;
-    color: #FFF200;
-  }
-  
+
+.green-header {
+  background-color: #004225;
+  font-family: "DynaPuff", cursive;
+  font-size: 20px;
+  color: white;
+  height: 85px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.red-header {
+  background-color: #f70d1a;
+  font-family: "DynaPuff", cursive;
+  font-size: 20px;
+  color: #fff200;
+  height: 85px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.green-theme-btn,
+.red-theme-btn {
+  background-color: rgb(124, 122, 122);
+  color: white;
+  font-size: large;
+  padding: 3px;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+:hover.green-theme-btn {
+  cursor: pointer;
+  background-color: #f70d1a;
+  color: #fff200;
+}
+
+:hover.red-theme-btn {
+  cursor: pointer;
+  background-color: #004225;
+  color: white;
+}
+
+.form {
+  display: flex;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  margin: 15px;
+  height: 30px;
+  width: auto;
+  padding: 1px;
+  font-size: large;
+}
+
+.red-submit-btn,
+.green-submit-btn {
+  cursor: pointer;
+  background-color: rgb(124, 122, 122);
+  color: white;
+  font-size: large;
+  width: 90px;
+  height: 30px;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+:hover.green-submit-btn {
+  background-color: #004225;
+  color: white;
+}
+
+:hover.red-submit-btn {
+  background-color: #f70d1a;
+  color: #fff200;
+}
+
+.card-container {
+  border: 1px solid grey;
+  border-radius: 5px;;
+  /* height: auto; */
+  margin: 10px;
+}
+
+.ugly-car-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-title {
+  margin: 3px;
+}
+
 .ugly-car-pic {
-  height: 130px;
+  height: 9rem;
   width: auto;
 }
 
-  .green-footer {
-    text-align: center;
-    font-size: 18px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: #004225;
-    color: white;
-    padding: 10px;
-  }
-  
-  .red-footer {
-    text-align: center;
-    font-size: 18px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: #F70D1A;
-    color: #FFF200;
-    padding: 10px;
-  }
+.card-description {
+  margin: 3px;
+}
+
+.delete-btn,
+.edit-btn {
+  height: 25px;
+  width: 50px;
+  margin: 7px;
+}
+
+.cardList-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.green-footer {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #004225;
+  color: white;
+  padding: 10px;
+}
+
+.red-footer {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #f70d1a;
+  color: #fff200;
+  padding: 10px;
+}
