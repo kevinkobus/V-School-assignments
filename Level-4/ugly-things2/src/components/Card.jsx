@@ -1,13 +1,13 @@
 // Component for individual ugly car card
 
-import React from "react";
+import React, { useContext } from "react";
 // import { OpsContext } from "./OpsContext";
 
 
 
 function Card(props) {
 
-    // const { uglyCar } = useContext(OpsContext) 
+    // const { handleDelete } = useContext(OpsContext) 
 
     return (
         <div className="card-container">
@@ -24,8 +24,8 @@ function Card(props) {
 
 export default Card
 
-// onClick={() => handleDelete()}
 // onClick={() => handleEdit()}
+// onClick={() => handleDelete()}
 
 
 

@@ -44,7 +44,7 @@ function OpsContextProvider(props) {
       .catch((err) => console.log(err));
   }
 
-  console.log(uglyCarArr)
+  // console.log(uglyCarArr)
 
   useEffect(() => {
     getUglyCars();
@@ -59,6 +59,20 @@ function OpsContextProvider(props) {
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   }
+
+  // //DELETE request to delete a card from the list and then re-rendering the list and setting state or uglyCarArr
+  
+
+  // function handleDelete(id) {
+  //   const deleteCar = uglyCar.filter(car => car._id !== id)
+    
+   
+    
+    // axios
+    //   .delete(`https://api.vschool.io/kevinkobus/thing/${id}`)
+    //   .then((res) => getUglyCars())
+    //   .catch((err) => console.log(err));
+  // } 
 
   return (
     <OpsContext.Provider
@@ -88,13 +102,7 @@ export { OpsContextProvider, OpsContext };
   // });
 
 
-  // //Delete request to delete a card from the list
-  // function handleDelete(id) {
-  //   axios
-  //     .delete(`https://api.vschool.io/kevinkobus/thing/${id}`)
-  //     .then((res) => getUglyCars())
-  //     .catch((err) => console.log(err));
-  // }
+  
 
   // // Put request to edit an existing ugly car card's info
   // function handleEdit(id, editUglyCar) {
