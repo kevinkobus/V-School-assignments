@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
 
-function Footer(props) {
+function Footer() {
   const { color } = useContext(ThemeContext);
 
   return (
