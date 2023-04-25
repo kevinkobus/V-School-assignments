@@ -6,7 +6,7 @@ import { OpsContext } from "./OpsContext";
 
 function Card(props) {
 
-  const { handleDelete, handleEdit } = useContext(OpsContext);
+  const { handleDelete, handleEditClick } = useContext(OpsContext);
 
   return (
     <div className="card-container">
@@ -22,14 +22,9 @@ function Card(props) {
       <button className="delete-btn" onClick={() => handleDelete(props.car._id)}>
         Delete
       </button>
-      <button className="edit-btn" >Edit</button>
+      <button className="edit-btn" onClick={() => handleEditClick()}>Edit</button>
     </div>
   );
 }
 
-// onClick={() => handleEdit()}
-
 export default Card;
-
-
-

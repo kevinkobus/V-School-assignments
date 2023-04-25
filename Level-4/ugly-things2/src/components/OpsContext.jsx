@@ -77,39 +77,39 @@ function OpsContextProvider(props) {
     };
 
 
-  // Edit state
-  // const [editUglyCar, setEditUglyCar] = useState({
-  //   title: "",
-  //   imgUrl: "",
-  //   description: "",
-  // });
+  // Editing state
+  const [editCar, setEditCar] = useState({
+    title: "",
+    description: "",
+  });
 
-  // const [displaySaveBtn, setDisplaySaveBtn] = useState(false);
+  // Save button state
+  const [displaySaveBtn, setDisplaySaveBtn] = useState(false);
 
-  // function handleEditChange(event) {
-  //   const { name, value } = event.target;
-  //   setDisplaySaveBtn(true);
-  //   setEditCar((prevState) => {
-  //     return {
-  //       ...prevState,
-  //       [name]: value,
-  //     };
-  //   });
-  // }
+  // Runs when edit button is clicked and changes edit btn to save btn
+  function handleEditClick() {
+    console.log("edit mode")
+    setDisplaySaveBtn(prevState => !prevState)
+    console.log(displaySaveBtn)
+  }
 
-  // Put request to edit an existing ugly car card's info
-  // function handleEdit(id, editUglyCar) {
-  //   axios
-  //     .put(`https://api.vschool.io/kevinkobus/thing/${id}`, editUglyCar)
-  //     .then(() => {
-  //       axios
-  //         .get("https://api.vschool.io/kevinkobus/thing")
-  //         .then((res) => {
-  //           setUglyCarArr(res.data);
-  //         })
-  //         .catch((err) => console.log(err));
-  //     });
-  // }
+function handleEditChange(event) {
+    const { name, value } = event.target
+    setEditCar(prevState => {
+      return {
+        ...prevState,
+        [name]: value,
+      }//
+    });
+  }
+  
+  // PUT request to edit an existing ugly car card's info
+  // axios
+  // .put("https://api.vschool.io/kevinkobus/thing", editUglyCar)
+  //   .then(res =>  setEditUglyCar(prevState => prevState.filter(car => car._id !== id)))
+  //       .catch((err) => console.log(err));
+   
+  
 
   return (
     <OpsContext.Provider
@@ -120,7 +120,7 @@ function OpsContextProvider(props) {
         handleChange,
         handleSubmit,
         handleDelete,
-        // handleEdit,
+        handleEditClick,
         // handleEditChange,
       }}
     >
