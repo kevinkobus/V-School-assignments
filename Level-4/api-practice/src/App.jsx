@@ -10,7 +10,7 @@ function App() {
     params: { id: "39" },
     headers: {
       "content-type": "application/octet-stream",
-      "X-RapidAPI-Key": "cd7d7b435emsh7c2ede170ee3f99p167911jsn841e502bb871",
+      "X-RapidAPI-Key": "",
       "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
     },
   };
