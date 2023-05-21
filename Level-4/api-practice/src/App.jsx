@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function App() {
-  const [leagueTable, setLeagueTable] = useState([]);
+
+  const [seasonArr, setSeasonArr] = useState([]);
 
   const eplTable = {
     method: "GET",
@@ -19,12 +20,22 @@ function App() {
     axios
       .request(eplTable)
       .then((res) => {
-        setLeagueTable(res.data);
+        setSeasonArr(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(leagueTable);
+  console.log(seasonArr);
+
+  const seasonList = seasonArr.map((data, index) => (
+      <Dropdown
+        key={index}
+        data={data}
+        id={data.seasons.start}
+        season={data.seasons.year}
+      />
+    ));
+
 
   return (
     <>
