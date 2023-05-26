@@ -13,29 +13,39 @@ const movies = [
 // Routes - multiple ways to do this
 
 // Option 1
-//   movieRouter.get("/", (req, res) => {
-//     res.send(movies);
-//   });
-
-//   movieRouter.post("/", (req, res) => {
-//     const newMovie = req.body;
-//     newMovie._id = uuidv4()
-//     movies.push(newMovie);
-//     res.send(`Successfully added ${newMovie.title} to the database!`);
-//   });
-
-// Option 2
-movieRouter
-  .route("/")
-  .get((req, res) => {
+// Get All
+  movieRouter.get("/", (req, res) => {
     res.send(movies);
-  })
-  .post((req, res) => {
+  });
+
+// Get One
+movieRouter.get("/:movieId", (req, res) => {
+  const movieId = req.params.movieId
+  const foundMovie = movies.find(movie => movie._id === movieId)
+  res.send(foundMovie)
+})
+
+
+  // Post One 
+  movieRouter.post("/", (req, res) => {
     const newMovie = req.body;
-    newMovie._id = uuidv4();
+    newMovie._id = uuidv4()
     movies.push(newMovie);
     res.send(`Successfully added ${newMovie.title} to the database!`);
   });
+
+// Option 2
+// movieRouter
+//   .route("/")
+//   .get((req, res) => {
+//     res.send(movies);
+//   })
+//   .post((req, res) => {
+//     const newMovie = req.body;
+//     newMovie._id = uuidv4();
+//     movies.push(newMovie);
+//     res.send(`Successfully added ${newMovie.title} to the database!`);
+//   });
 
   
 module.exports = movieRouter;

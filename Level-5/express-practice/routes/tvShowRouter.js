@@ -11,10 +11,18 @@ const tvShows = [
 ];
 
 // Routes
+// Get All
+tvShowRouter.get("/", (req, res) => {
+  res.send(tvShows);
+});
 
-// tvShowRouter.get("/", (req, res) => {
-//   res.send(tvShows);
-// });
+// Get One
+tvShowRouter.get("/:tvShowId", (req, res) => {
+  const tvShowId = req.params.tvShowId
+  const foundTv = tvShows.find(tvShow => tvShow._id === tvShowId)
+  res.send(foundTv)
+})
+
 
 // tvShowRouter.post("/", (req, res) => {
 //   const newShow = req.body;
@@ -23,17 +31,17 @@ const tvShows = [
 //   res.send(`Succesfully added ${newShow.title} to the database`);
 // });
 
-tvShowRouter
-  .route("/")
-  .get((req, res) => {
-    res.send(tvShows);
-  })
-  .post((req, res) => {
-    const newShow = req.body;
-    newShow._id = uuidv4();
-    tvShows.push(newShow);
-    res.send(`Succesfully added ${newShow.title} to the database`);
-  });
+// tvShowRouter
+//   .route("/")
+//   .get((req, res) => {
+//     res.send(tvShows);
+//   })
+//   .post((req, res) => {
+//     const newShow = req.body;
+//     newShow._id = uuidv4();
+//     tvShows.push(newShow);
+//     res.send(`Succesfully added ${newShow.title} to the database`);
+//   });
 
 
 module.exports = tvShowRouter;
