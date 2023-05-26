@@ -14,25 +14,31 @@ const movies = [
 
 // Option 1
 // Get All
-  movieRouter.get("/", (req, res) => {
-    res.send(movies);
-  });
+movieRouter.get("/", (req, res) => {
+  res.send(movies);
+});
 
 // Get One
 movieRouter.get("/:movieId", (req, res) => {
-  const movieId = req.params.movieId
-  const foundMovie = movies.find(movie => movie._id === movieId)
-  res.send(foundMovie)
-})
+  const movieId = req.params.movieId;
+  const foundMovie = movies.find((movie) => movie._id === movieId);
+  res.send(foundMovie);
+});
 
+// Get by genre
+movieRouter.get("/search/genre", (req, res) => {
+  const genre = req.query.genre;
+  const filteredMovies = movies.filter((movie) => movie.genre === genre);
+  res.send(filteredMovies);
+});
 
-  // Post One 
-  movieRouter.post("/", (req, res) => {
-    const newMovie = req.body;
-    newMovie._id = uuidv4()
-    movies.push(newMovie);
-    res.send(`Successfully added ${newMovie.title} to the database!`);
-  });
+// Post One
+movieRouter.post("/", (req, res) => {
+  const newMovie = req.body;
+  newMovie._id = uuidv4();
+  movies.push(newMovie);
+  res.send(`Successfully added ${newMovie.title} to the database!`);
+});
 
 // Option 2
 // movieRouter
@@ -47,5 +53,4 @@ movieRouter.get("/:movieId", (req, res) => {
 //     res.send(`Successfully added ${newMovie.title} to the database!`);
 //   });
 
-  
 module.exports = movieRouter;
