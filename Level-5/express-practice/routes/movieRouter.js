@@ -45,7 +45,7 @@ movieRouter.delete("/:movieId", (req, res) => {
   const movieId = req.params.moviedId
   const movieIndex = movies.findIndex(movie => movie._id === movieId)
   movies.splice(movieIndex, 1)
-  res.send("Succesfully deleted movie!")
+  res.send("Successfully deleted movie!")
 })
 
 // Update One
