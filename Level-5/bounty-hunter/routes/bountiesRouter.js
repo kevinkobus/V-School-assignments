@@ -37,6 +37,7 @@ const bounties = [
   },
 ];
 
+// Get all & Post
 bountiesRouter
   .route("/")
   .get((req, res) => {
@@ -51,6 +52,14 @@ bountiesRouter
     );
   })
 
+  // Get one
+bountiesRouter.get("/:bountyId", (req, res) => {
+  bountyId =req.params.bountyId
+  const foundBounty = bounties.find((bounty) => bounty._id === bountyId)
+  res.send(foundBounty)
+})
+
+// Edit one
   bountiesRouter.put("/:bountyId", (req, res) => {
     bountyId = req.params.bountyId
     const updateObject = req.body
@@ -58,6 +67,8 @@ bountiesRouter
     const updatedBounty = Object.assign(bounties[bountyIndex], updateObject)
     res.send(updatedBounty)
   })
+
+  // Delete one
   bountiesRouter.delete("/:bountyId", (req, res) => {
     bountyId = req.params.bountyId
     const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)

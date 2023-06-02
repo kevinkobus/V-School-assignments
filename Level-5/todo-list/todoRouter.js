@@ -30,6 +30,7 @@ const todos = [
 //   res.send(todos);
 // });
 
+// Get all & Post
 todoRouter
   .route("/")
   .get((req, res) => {
@@ -44,10 +45,30 @@ todoRouter
     );
   })
 
+// Get One
+todoRouter.get("/:todoId", (req, res) => {
+    const todoId = req.params.todoId;
+    const foundTodo = todos.find((todo) => todo._id === todoId);
+    res.send(foundTodo);
+  });
 
-
-
-
+// Delete One
+todoRouter.delete("/:todoId", (req, res) => {
+    const todoId = req.params.tododId
+    const todoIndex = todos.findIndex(todo => todo._id === todoId)
+    todos.splice(todoIndex, 1)
+    res.send("Successfully deleted todo!")
+  })
   
+  // Update One
+  todoRouter.put("/:todoId", (req, res) => {
+    todoId = req.params.todoId
+    const updateObject = req.body
+    const todoIndex = todos.findIndex(todo => todo._id === todoId)
+    const updatedTodo = Object.assign(todos[todoIndex], updateObject)
+    res.send(updatedTodo)
+  })
+
+
 
 module.exports = todoRouter;
