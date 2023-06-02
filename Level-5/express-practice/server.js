@@ -1,13 +1,14 @@
 // First Express Server
 const express = require("express");
 const app = express();
-
+const morgan = require("morgan")
 
 // Middleware (for every request)
 // Looks for a request body, and turns it into 'req.body'
 // .use takes two arguments, first is what to look for (mount path), second is what middleware should be used
 // if first argument is left blank, it just runs on every request
 app.use(express.json());
+app.use(morgan("dev"))
 
 app.use("/movies", require("./routes/movieRouter.js"));
 app.use("/tvShows", require("./routes/tvShowRouter.js"));
