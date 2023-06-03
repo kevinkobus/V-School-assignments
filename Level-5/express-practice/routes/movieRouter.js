@@ -71,4 +71,9 @@ movieRouter.put("/:movieId", (req, res) => {
 //     res.send(`Successfully added ${newMovie.title} to the database!`);
 //   });
 
+
+
+// app.use("/api/chores", require("./routes/choresRouter.js"))
+
+
 module.exports = movieRouter;
