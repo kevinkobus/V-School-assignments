@@ -14,7 +14,7 @@ const movies = [
 
 // Option 1
 // Get All
-movieRouter.get("/", (req, res) => {
+movieRouter.get("/movies", (req, res) => {
   res.send(movies);
 });
 
@@ -60,7 +60,7 @@ movieRouter.put("/:movieId", (req, res) => {
 
 // Option 2
 // movieRouter
-//   .route("/")
+//   .route("/api")
 //   .get((req, res) => {
 //     res.send(movies);
 //   })

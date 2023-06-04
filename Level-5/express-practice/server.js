@@ -10,8 +10,8 @@ const morgan = require("morgan")
 app.use(express.json());
 app.use(morgan("dev"))
 
-app.use("/movies", require("./routes/movieRouter.js"));
-app.use("/tvShows", require("./routes/tvShowRouter.js"));
+app.use("/api", require("./routes/movieRouter.js"));
+// app.use("/api/tvShows", require("./routes/tvShowRouter.js"));
 
 // Fake data
 // const users = [
