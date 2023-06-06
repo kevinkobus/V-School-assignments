@@ -50,7 +50,7 @@ movieRouter.delete("/movies/:movieId", (req, res) => {
 })
 
 // Update One
-movieRouter.put("/:movieId", (req, res) => {
+movieRouter.put("/movies/:movieId", (req, res) => {
   movieId = req.params.movieId
   const updateObject = req.body
   const movieIndex = movies.findIndex(movie => movie._id === movieId)
