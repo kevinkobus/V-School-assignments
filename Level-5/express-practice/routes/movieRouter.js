@@ -33,15 +33,16 @@ movieRouter.get("/search/genre", (req, res) => {
 });
 
 // Post One
-movieRouter.post("/", (req, res) => {
+movieRouter.post("/movies", (req, res) => {
   const newMovie = req.body;
   newMovie._id = uuidv4();
   movies.push(newMovie);
-  res.send(`Successfully added ${newMovie.title} to the database!`);
+  // res.send(`Successfully added ${newMovie.title} to the database!`);
+  res.send(newMovie)
 });
 
 // Delete One
-movieRouter.delete("/:movieId", (req, res) => {
+movieRouter.delete("/movies/:movieId", (req, res) => {
   const movieId = req.params.moviedId
   const movieIndex = movies.findIndex(movie => movie._id === movieId)
   movies.splice(movieIndex, 1)
