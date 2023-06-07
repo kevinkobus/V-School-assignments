@@ -8,7 +8,7 @@ const bounties = [
     lastName: "The Frog",
     living: true,
     bounty: 100,
-    type: "Jedi",
+    type: "Muppets",
     _id: uuidv4(),
   },
   {
@@ -16,7 +16,7 @@ const bounties = [
     lastName: "Bird",
     living: true,
     bounty: 200,
-    type: "Jedi",
+    type: "Sesame Street",
     _id: uuidv4(),
   },
   {
@@ -24,7 +24,7 @@ const bounties = [
     lastName: "The Grouch",
     living: true,
     bounty: 75,
-    type: "Sith",
+    type: "Sesame Street",
     _id: uuidv4(),
   },
   {
@@ -32,14 +32,22 @@ const bounties = [
     lastName: "von Count",
     living: true,
     bounty: 125,
-    type: "Sith",
+    type: "Sesame Street",
+    _id: uuidv4(),
+  },
+  {
+    firstName: "Miss",
+    lastName: "Piggy",
+    living: true,
+    bounty: 200,
+    type: "Muppets",
     _id: uuidv4(),
   },
 ];
 
 // Get all & Post
 bountiesRouter
-  .route("/")
+  .route("/bounties")
   .get((req, res) => {
     res.send(bounties);
   })
@@ -53,14 +61,14 @@ bountiesRouter
   })
 
   // Get one
-bountiesRouter.get("/:bountyId", (req, res) => {
+bountiesRouter.get("/bounties/:bountyId", (req, res) => {
   bountyId =req.params.bountyId
   const foundBounty = bounties.find((bounty) => bounty._id === bountyId)
   res.send(foundBounty)
 })
 
 // Edit one
-  bountiesRouter.put("/:bountyId", (req, res) => {
+  bountiesRouter.put("/bounties/:bountyId", (req, res) => {
     bountyId = req.params.bountyId
     const updateObject = req.body
     const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
@@ -69,7 +77,7 @@ bountiesRouter.get("/:bountyId", (req, res) => {
   })
 
   // Delete one
-  bountiesRouter.delete("/:bountyId", (req, res) => {
+  bountiesRouter.delete("/bounties/:bountyId", (req, res) => {
     bountyId = req.params.bountyId
     const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
     bounties.splice(bountyIndex, 1)

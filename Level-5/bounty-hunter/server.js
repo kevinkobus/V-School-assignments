@@ -3,7 +3,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use("/bounties", require("./routes/bountiesRouter.js"))
+app.use("/api", require("./routes/bountiesRouter.js"))
 
 
 app.listen(9000, () => {
