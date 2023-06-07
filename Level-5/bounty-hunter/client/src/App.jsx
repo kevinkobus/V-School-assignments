@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import BountiesList from "./components/BountiesList"
+// import BountyForm from "./components/BountyForm"
 import axios from "axios"
 
 function App() {

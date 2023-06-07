@@ -4,6 +4,7 @@ const { v4: uuidv4 } = require("uuid");
 
 const bounties = [
   {
+    headShot: "https://i.pinimg.com/originals/f7/f6/d8/f7f6d8f7ca7a4e2f891c86dc4e607a28.png",
     firstName: "Kermit",
     lastName: "The Frog",
     living: true,
@@ -12,6 +13,7 @@ const bounties = [
     _id: uuidv4(),
   },
   {
+    headShot: "https://i.ebayimg.com/images/g/YjsAAOSwkSZgTU4~/s-l1600.jpg",
     firstName: "Big",
     lastName: "Bird",
     living: true,
@@ -20,6 +22,7 @@ const bounties = [
     _id: uuidv4(),
   },
   {
+    headShot: "https://akns-images.eonline.com/eol_images/Entire_Site/2013915/rs_1024x759-131015104822-1024.-oscar-the_grouch.ls.101513.jpg?fit=around%7C1024:759&output-quality=90&crop=1024:759;center,top",
     firstName: "Oscar",
     lastName: "The Grouch",
     living: true,
@@ -28,6 +31,7 @@ const bounties = [
     _id: uuidv4(),
   },
   {
+    headShot: "https://i.scdn.co/image/ab6761610000e5eb3c440e8ded13dd10533a22fa",
     firstName: "Count",
     lastName: "von Count",
     living: true,
@@ -36,6 +40,7 @@ const bounties = [
     _id: uuidv4(),
   },
   {
+    headShot: "https://assets.mycast.io/actor_images/actor-miss-piggy-427324_large.jpg?1652380488",
     firstName: "Miss",
     lastName: "Piggy",
     living: true,
