@@ -12,7 +12,7 @@ function App() {
       .get("/api/movies")
       // .then((res) => console.log(res.data))
       .then((res) => setMovies(res.data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err.response.data.errMsg));
   }
 // POST
 function addMovie(newMovie) {

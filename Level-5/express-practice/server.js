@@ -10,17 +10,17 @@ const morgan = require("morgan")
 app.use(express.json());
 app.use(morgan("dev"))
 
-app.use("/api", require("./routes/movieRouter.js"));
+app.use("/movies", require("./routes/movieRouter.js"));
+// app.use("/api", require("./routes/movieRouter.js"));
 // app.use("/api/tvShows", require("./routes/tvShowRouter.js"));
 
-// Fake data
-// const users = [
-//     { name: "joe", age: 20 },
-//     { name: "moe", age: 24 },
-//     { name: "betty", age: 30 },
-//     { name: "sarah", age: 34 },
-//     { name: "mike", age: 41 },
-// ]
+// Error handler
+app.use((err, req, res, next) => {
+  console.log(err)
+  return res.send({errMsg: err.message})
+})
+
+
 
 // Arguments for get()
 // 1. Endpoint (mount path) req=request res=response
