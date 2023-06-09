@@ -11,7 +11,6 @@ function AddMovieForm(props) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    // console.log(inputs)
     props.submit(inputs, props._id)
     setInputs(initInputs)
   }

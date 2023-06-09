@@ -48,6 +48,15 @@ const bounties = [
     type: "Muppets",
     _id: uuidv4(),
   },
+  {
+    headShot: "https://lumiere-a.akamaihd.net/v1/images/character_themuppets_animal_ab30cded.jpeg?region=0%2C0%2C450%2C450",
+    firstName: "Animal",
+    lastName: "?",
+    living: true,
+    bounty: 300,
+    type: "Muppets",
+    _id: uuidv4(),
+  },
 ];
 
 // Get all & Post
@@ -60,17 +69,18 @@ bountiesRouter
     const newBounty = req.body;
     newBounty._id = uuidv4();
     bounties.push(newBounty);
-    res.send(
-      `Successfully added ${newBounty.firstName} ${newBounty.lastName} to the database!`
-    );
+    // res.send(
+    //   `Successfully added ${newBounty.firstName} ${newBounty.lastName} to the database!`
+    // );
+    res.send(newBounty)
   })
 
   // Get one
-bountiesRouter.get("/bounties/:bountyId", (req, res) => {
-  bountyId =req.params.bountyId
-  const foundBounty = bounties.find((bounty) => bounty._id === bountyId)
-  res.send(foundBounty)
-})
+// bountiesRouter.get("/bounties/:bountyId", (req, res) => {
+//   bountyId =req.params.bountyId
+//   const foundBounty = bounties.find((bounty) => bounty._id === bountyId)
+//   res.send(foundBounty)
+// })
 
 // Edit one
   bountiesRouter.put("/bounties/:bountyId", (req, res) => {
@@ -83,7 +93,7 @@ bountiesRouter.get("/bounties/:bountyId", (req, res) => {
 
   // Delete one
   bountiesRouter.delete("/bounties/:bountyId", (req, res) => {
-    bountyId = req.params.bountyId
+    const bountyId = req.params.bountyId
     const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
     bounties.splice(bountyIndex, 1)
     res.send("Successfully deleted bounty!")

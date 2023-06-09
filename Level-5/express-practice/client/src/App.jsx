@@ -6,6 +6,7 @@ import AddMovieForm from "./components/AddMovieForm"
 function App() {
   const [movies, setMovies] = useState([]);
 
+  // GET
   function getMovies() {
     axios
       .get("/api/movies")
@@ -13,7 +14,7 @@ function App() {
       .then((res) => setMovies(res.data))
       .catch((err) => console.log(err));
   }
-
+// POST
 function addMovie(newMovie) {
   axios.post("/api/movies", newMovie)
   // .then(res => console.log(res))
