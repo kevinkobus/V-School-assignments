@@ -1,7 +1,8 @@
 // First Express Server
 const express = require("express");
-const app = express();
+const app = express()
 const morgan = require("morgan")
+const mongoose = require("mongoose")
 
 // Middleware (for every request)
 // Looks for a request body, and turns it into 'req.body'
@@ -9,6 +10,10 @@ const morgan = require("morgan")
 // if first argument is left blank, it just runs on every request
 app.use(express.json());
 app.use(morgan("dev"))
+
+// Connect to DB
+mongoose.connect("mongodb://localhost:27017/moviesdb")
+  .then(() => console.log("Connected to DB"))
 
 app.use("/movies", require("./routes/movieRouter.js"));
 // app.use("/api", require("./routes/movieRouter.js"));
@@ -19,8 +24,6 @@ app.use((err, req, res, next) => {
   console.log(err)
   return res.send({errMsg: err.message})
 })
-
-
 
 // Arguments for get()
 // 1. Endpoint (mount path) req=request res=response
