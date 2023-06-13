@@ -16,8 +16,7 @@ mongoose.connect("mongodb://localhost:27017/moviesdb")
   .then(() => console.log("Connected to DB"))
 
 app.use("/movies", require("./routes/movieRouter.js"));
-// app.use("/api", require("./routes/movieRouter.js"));
-// app.use("/api/tvShows", require("./routes/tvShowRouter.js"));
+app.use("/tvShows", require("./routes/tvShowRouter.js"));
 
 // Error handler
 app.use((err, req, res, next) => {
@@ -25,17 +24,7 @@ app.use((err, req, res, next) => {
   return res.send({errMsg: err.message})
 })
 
-// Arguments for get()
-// 1. Endpoint (mount path) req=request res=response
-// 2. CallBack function
 
-// app.get("/user", (req, res) => {
-//     res.send("Hello World!")
-// })
-
-// Arguments for listen()
-// 1: Port
-// 2: CallBack function
 app.listen(9000, () => {
   console.log("The server is running on Port 9000");
 });
