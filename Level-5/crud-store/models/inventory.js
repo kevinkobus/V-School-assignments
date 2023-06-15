@@ -11,16 +11,7 @@ const inventorySchema = new Schema({
         type: String,
         required: true
     },
-    year: {
-        type: Number,
-        required: true
-    },
-    style: {
-        type: String,
-    },
-    price: {
-        type: Number
-    }
+    price: Number
 })
 
 
