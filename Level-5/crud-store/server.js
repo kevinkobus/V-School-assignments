@@ -9,8 +9,10 @@ app.use(morgan("dev"));
 
 // Connect to DB
 mongoose
-  .connect("mongodb://localhost:27017/cruddb")
-  .then(() => console.log("Connected to DB"));
+  .connect("mongodb://localhost:27017/inventorydb")
+  .then(() => console.log("Connected to the Inventory Database"));
+
+// app.use("/inventory", require("./routes/inventoryRouter.js"));
 
 // Error handler
 app.use((err, req, res, next) => {
@@ -18,6 +20,6 @@ app.use((err, req, res, next) => {
   return res.send({ errMsg: err.message });
 });
 
-app.listen(8000, () => {
-  console.log("The server is running on Port 8000");
+app.listen(9000, () => {
+  console.log("The server is running on Port 9000");
 });
