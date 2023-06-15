@@ -15,8 +15,8 @@ app.use(morgan("dev"))
 mongoose.connect("mongodb://localhost:27017/moviesdb")
   .then(() => console.log("Connected to DB"))
 
-app.use("/movies", require("./routes/movieRouter.js"));
-app.use("/tvShows", require("./routes/tvShowRouter.js"));
+app.use("/api/movies", require("./routes/movieRouter.js"));
+// app.use("/api/tvShows", require("./routes/tvShowRouter.js"));
 
 // Error handler
 app.use((err, req, res, next) => {
