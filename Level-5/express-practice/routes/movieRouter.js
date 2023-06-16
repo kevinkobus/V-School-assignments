@@ -52,7 +52,7 @@ movieRouter.put("/:movieId", (req, res, next) => {
   Movie.findOneAndUpdate(
     {_id: req.params.movieId}, // find this one to update
     req.body, // update the object with this data
-    { new: true }) // send back the updated version please  
+    { new: true }) // send back the updated version 
     .then((updatedMovie) => {
       if(!updatedMovie){
         return res.status(404).send("Item not found");

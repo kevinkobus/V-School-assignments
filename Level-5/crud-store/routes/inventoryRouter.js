@@ -16,19 +16,17 @@ inventoryRouter.get("/", (req, res, next) => {
 
 // Get One
 inventoryRouter.get("/:itemId", (req, res, next) => {
-  Inventory.findById(itemId, (err, foundItem) => {
-    if (err) {
+  Inventory.findById({ _id: req.params.itemId })
+    .then((foundItem) => {
+      if (!foundItem) {
+        return res.status(404).send("Item not found");
+      }
+      return res.status(200).send(foundItem);
+    })
+    .catch((err) => {
       res.status(500);
       return next(err);
-    }
-    if (!foundItem) {
-      const err = newError(`The item ${itemId} was not found`);
-      err.status = 404;
-      res.status(500);
-      return next(err);
-    }
-    res.status(200).send(foundItem);
-  });
+    });
 });
 
 // Post
@@ -54,9 +52,7 @@ inventoryRouter.delete("/:itemId", (req, res, next) => {
       }
       return res
         .status(200)
-        .send(
-          `Successfully deleted item ${deletedItem.name} from the database`
-        );
+        .send(`Successfully deleted item ${deletedItem} from the database`);
     })
     .catch((err) => {
       res.status(500);
@@ -65,15 +61,28 @@ inventoryRouter.delete("/:itemId", (req, res, next) => {
 });
 
 // Edit/Update
-inventoryRouter.put("/:itemId", (req, res) => {
-  Inventory.findOneAndUpdate({ _id: req.params.itemId }, req.body, {
-    new: true,
-  })
+inventoryRouter.put("/:itemId", (req, res, next) => {
+  Inventory.findOneAndUpdate(
+    { _id: req.params.itemId }, // find this one to update
+    req.body, // update the object with this data
+    { new: true }) // send back the updated version
     .then((updatedItem) => {
       if (!updatedItem) {
         return res.status(404).send("Item not found");
       }
       return res.status(200).send(updatedItem);
+    })
+    .catch((err) => {
+      res.status(500);
+      return next(err);
+    });
+});
+
+// Get by make
+inventoryRouter.get("/search/make", (req, res, next) => {
+  Inventory.find({ make: req.query.make })
+    .then((items) => {
+      return res.status(200).send(items);
     })
     .catch((err) => {
       res.status(500);
