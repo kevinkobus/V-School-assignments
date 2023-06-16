@@ -12,7 +12,7 @@ mongoose
   .connect("mongodb://localhost:27017/bountyhunterdb")
   .then(() => console.log("Connected to the Bounty Hunter DB"));
 
-app.use("/bounties", require("./routes/bountiesRouter.js")); // route that directs the app
+app.use("/api", require("./routes/bountiesRouter.js")); // route that directs the app
 
 // Error handler
 app.use((err, req, res, next) => {

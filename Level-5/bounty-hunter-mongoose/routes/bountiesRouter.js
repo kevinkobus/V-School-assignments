@@ -3,7 +3,7 @@ const bountiesRouter = express.Router();
 const Bounty = require("../models/bounty.js");
 
 // GET all
-bountiesRouter.get("/", (req, res, next) => {
+bountiesRouter.get("/bounties", (req, res, next) => {
   Bounty.find({})
     .then((bounties) => {
       return res.status(200).send(bounties);
@@ -15,7 +15,7 @@ bountiesRouter.get("/", (req, res, next) => {
 });
 
 // POST
-bountiesRouter.post("/", (req, res, next) => {
+bountiesRouter.post("/bounties", (req, res, next) => {
   const newBounty = new Bounty(req.body);
   newBounty
     .save()
@@ -29,7 +29,7 @@ bountiesRouter.post("/", (req, res, next) => {
 });
 
 // GET one
-bountiesRouter.get("/:bountyId", (req, res, next) => {
+bountiesRouter.get("/bounties/:bountyId", (req, res, next) => {
   Bounty.findById({ _id: req.params.bountyId })
     .then((foundBounty) => {
       if (!foundBounty) {
@@ -44,7 +44,7 @@ bountiesRouter.get("/:bountyId", (req, res, next) => {
 });
 
 // GET one by type/family
-bountiesRouter.get("/search/type", (req, res, next) => {
+bountiesRouter.get("/bounties/search/type", (req, res, next) => {
   Bounty.find({ type: req.query.type })
     .then((foundBounties) => {
       return res.status(200).send(foundBounties);
@@ -56,7 +56,7 @@ bountiesRouter.get("/search/type", (req, res, next) => {
 });
 
 // (PUT) Edit one
-bountiesRouter.put("/:bountyId", (req, res, next) => {
+bountiesRouter.put("/bounties/:bountyId", (req, res, next) => {
   Bounty.findOneAndUpdate({ _id: req.params.bountyId }, req.body, { new: true })
     .then((updatedBounty) => {
       if (!updatedBounty) {
@@ -71,7 +71,7 @@ bountiesRouter.put("/:bountyId", (req, res, next) => {
 });
 
 // DELETE one
-bountiesRouter.delete("/:bountyId", (req, res, next) => {
+bountiesRouter.delete("/bounties/:bountyId", (req, res, next) => {
   Bounty.findOneAndDelete({ _id: req.params.bountyId })
     .then((deletedBounty) => {
       if (!deletedBounty) {
