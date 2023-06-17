@@ -43,9 +43,9 @@ bountiesRouter.get("/bounties/:bountyId", (req, res, next) => {
     });
 });
 
-// GET one by type/family
-bountiesRouter.get("/bounties/search/type", (req, res, next) => {
-  Bounty.find({ type: req.query.type })
+// GET one by family
+bountiesRouter.get("/bounties/search/family", (req, res, next) => {
+  Bounty.find({ family: req.query.family })
     .then((foundBounties) => {
       return res.status(200).send(foundBounties);
     })

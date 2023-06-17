@@ -21,7 +21,7 @@ const bountySchema = new Schema({
         type: Number,
         required: true
     },
-    type: {
+    family: {
         type: String,
         required: true
     }

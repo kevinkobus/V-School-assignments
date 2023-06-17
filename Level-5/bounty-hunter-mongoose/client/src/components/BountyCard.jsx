@@ -3,7 +3,9 @@ import BountyForm from "./BountyForm";
 
 function BountyCard(props) {
   const [editToggle, setEditToggle] = useState(false);
-  const { headShot, firstName, lastName, status, bounty, type, _id } = props;
+  const { headShot, firstName, lastName, status, bounty, family, _id } = props;
+
+// console.log(props)
 
   return (
     <div className="card-container">
@@ -17,7 +19,7 @@ function BountyCard(props) {
           <div className="info">
             <h4>Status: {status}</h4>
             <h4>Bounty: ${bounty}</h4>
-            <h4>Family: {type}</h4>
+            <h4>Family: {family}</h4>
           </div>
           <div className="buttons">
             <button
@@ -28,7 +30,7 @@ function BountyCard(props) {
             </button>
             <button
               className="delete-btn"
-              onClick={() => props.deleteBounty(props._id)}
+              onClick={() => props.deleteBounty(_id)}
             >
               Delete
             </button>
@@ -42,7 +44,7 @@ function BountyCard(props) {
             lastName={lastName}
             status={status}
             bounty={bounty}
-            family={type}
+            family={family}
             _id={_id}
             btnText="Submit Edit"
             submit={props.editBounty}
