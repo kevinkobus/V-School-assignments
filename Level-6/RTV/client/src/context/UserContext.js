@@ -7,7 +7,7 @@ function UserContextProvider(props){
     const initState = { 
         user: {}, 
         token: "", 
-        todos: [] 
+        issues: [] 
     }
 
     const [userState, setUserState] = useState(initState)
@@ -22,8 +22,6 @@ function UserContextProvider(props){
 
     )
 }
-
-
 
 
 export { UserContextProvider, UserContext }
