@@ -5,8 +5,8 @@ const UserContext = createContext()
 
 function UserContextProvider(props){
     const initState = { 
-        user: {}, 
-        token: "", 
+        user: JSON.parse(localStorage.getItem("user")) || {}, 
+        token: localStorage.getItem("token") || "", 
         issues: [] 
     }
 
@@ -14,14 +14,34 @@ function UserContextProvider(props){
 
     function signup(credentials){
         axios.post("/auth/signup", credentials)
-        .then(res => console.log(res))
+        .then(res => {
+            const { user, token } = res.data
+            localStorage.setItem("token", token)
+            localStorage.setItem("user", JSON.stringify(user))
+            setUserState(prevUserState => ({
+                ...prevUserState,
+                user,
+                token
+            }))
+        })
         // .catch(err => console.dir(err))
         .catch(err => console.log(err.response.data.errMsg))
     }
 
     function login(credentials) {
         axios.post("/auth/login", credentials)
-        .then(res => console.log(res))
+        .then(res => {
+            const { user, token } = res.data
+            localStorage.setItem("token", token)
+            localStorage.setItem("user", JSON.stringify(user))
+            setUserState(prevUserState => ({
+                ...prevUserState,
+                user,
+                token
+            }))
+        })
+
+
         // .catch(err => console.dir(err))
         .catch(err => console.log(err.response.data.errMsg))
     }
