@@ -3,8 +3,6 @@ import React, { useState } from "react";
 const initInputs = {
   title: "",
   description: "",
-  votesFor: "",
-  votesAgainst: "",
 };
 
 function IssueForm() {
@@ -23,7 +21,7 @@ function IssueForm() {
     // add and issue
   }
 
-  const { title, description, votesFor, votesAgainst } = inputs;
+  const { title, description } = inputs;
   return (
     <form onSubmit={handleSubmit}>
       <input
@@ -40,23 +38,29 @@ function IssueForm() {
         onChange={handleChange}
         placeholder="Description"
       />
-      <input
-        type="number"
-        name="votesFor"
-        value={votesFor}
-        onChange={handleChange}
-        placeholder="Votes For"
-      />
-      <input
-        type="number"
-        name="votesAgainst"
-        value={votesAgainst}
-        onChange={handleChange}
-        placeholder="Votes Against"
-      />
       <button>Add Issue</button>
     </form>
   );
 }
 
 export default IssueForm;
+
+// <input
+//   type="number"
+//   name="votesFor"
+//   value={votesFor}
+//   onChange={handleChange}
+//   placeholder="Votes For"
+// />
+// <input
+//   type="number"
+//   name="votesAgainst"
+//   value={votesAgainst}
+//   onChange={handleChange}
+//   placeholder="Votes Against"
+// />
+
+// votesFor: "",
+// votesAgainst: ""
+
+// votesFor, votesAgainst

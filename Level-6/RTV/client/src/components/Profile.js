@@ -5,12 +5,12 @@ import Issue from './Issue'
 import { UserContext } from '../context/UserContext'
 
 function Profile(){
-  const { user: { username }} = useContext(UserContext)
+  const { user: { username }, addIssue } = useContext(UserContext)
   return (
     <div className="profile">
       <h1>Welcome {username}!</h1>
       <h3>Add an Issue</h3>
-      <IssueForm />
+      <IssueForm addIssue={addIssue} />
       <h3>Your Issues</h3>
     </div>
   )

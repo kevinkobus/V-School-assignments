@@ -3,6 +3,15 @@ import axios from "axios";
 
 const UserContext = createContext();
 
+// Creating another version of axios to intercept user token so it gets passed with the authorization header
+const userAxios = axios.create()
+
+userAxios.interceptors.request.use(config => {
+  const token = localStorage.getItem("token")
+  config.headers.Authorization = `Bearer ${token}`
+  return config
+})
+
 // Context provider for user signup/login and authentication
 function UserContextProvider(props) {
   const initState = {
@@ -61,7 +70,13 @@ function UserContextProvider(props) {
     });
   }
 
-  //   returning/providing the userState, etc. values to be consumed by any component that imports them
+  function addIssue(){
+    userAxios.post("/api/issue", newIssue)
+    .then(res => console.log(res))
+    .catch(err => console.log(err.response.data.errMsg))
+  }
+
+  //   returning/providing the userState and other values to be consumed by any component that imports them
   return (
     <UserContext.Provider
       value={{
@@ -69,6 +84,7 @@ function UserContextProvider(props) {
         signup,
         login,
         logout,
+        addIssue,
       }}
     >
       {props.children}
