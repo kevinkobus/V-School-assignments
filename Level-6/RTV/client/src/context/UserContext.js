@@ -4,13 +4,13 @@ import axios from "axios";
 const UserContext = createContext();
 
 // Creating another version of axios to intercept user token so it gets passed with the authorization header
-const userAxios = axios.create()
+const userAxios = axios.create();
 
-userAxios.interceptors.request.use(config => {
-  const token = localStorage.getItem("token")
-  config.headers.Authorization = `Bearer ${token}`
-  return config
-})
+userAxios.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
 
 // Context provider for user signup/login and authentication
 function UserContextProvider(props) {
@@ -49,6 +49,7 @@ function UserContextProvider(props) {
         const { user, token } = res.data;
         localStorage.setItem("token", token); //saving the token data to localStorage so not to lose it after browser refresh
         localStorage.setItem("user", JSON.stringify(user)); //saving the user data to localStorage so not to lose it after browser refresh
+        getUserIssues();
         setUserState((prevUserState) => ({
           ...prevUserState,
           user,
@@ -58,10 +59,10 @@ function UserContextProvider(props) {
       // .catch(err => console.dir(err))
       .catch((err) => console.log(err.response.data.errMsg));
   }
-  
+
   // User logout which removes user info from localStorage and resets state
   function logout() {
-    localStorgage.removeItem("token");
+    localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUserState({
       user: {},
@@ -70,10 +71,29 @@ function UserContextProvider(props) {
     });
   }
 
-  function addIssue(){
-    userAxios.post("/api/issue", newIssue)
-    .then(res => console.log(res))
-    .catch(err => console.log(err.response.data.errMsg))
+  function getUserIssues() {
+    userAxios
+      .get("/api/issue/user")
+      .then((res) => {
+        setUserState((prevState) => ({
+          ...prevState,
+          issues: res.data,
+        }));
+      })
+      .catch((err) => console.log(err.response.data.errMsg));
+  }
+
+  function addIssue(newIssue) {
+    userAxios
+      .post("/api/issue", newIssue)
+      // .then((res) => console.log(res))
+      .then((res) => {
+        setUserState((prevState) => ({
+          ...prevState,
+          issues: [...prevState.issues, res.data],
+        }));
+      })
+      .catch((err) => console.log(err.response.data.errMsg));
   }
 
   //   returning/providing the userState and other values to be consumed by any component that imports them

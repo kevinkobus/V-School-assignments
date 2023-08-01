@@ -5,8 +5,9 @@ const initInputs = {
   description: "",
 };
 
-function IssueForm() {
+function IssueForm(props) {
   const [inputs, setInputs] = useState(initInputs);
+  const { addIssue } = props
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -18,7 +19,8 @@ function IssueForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // add and issue
+    addIssue(inputs)
+    setInputs(initInputs)
   }
 
   const { title, description } = inputs;
