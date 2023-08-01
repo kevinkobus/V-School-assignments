@@ -16,10 +16,11 @@ issueRouter.get("/", (req, res, next) => {
 
 // Add new Issue
 issueRouter.post("/", (req, res, next) => {
-  req.body.issue = req.auth._id;
+  req.body.user = req.auth._id;
   const newIssue = new Issue(req.body);
   newIssue
     .save()
+    .then((res) => console.log(res))
     .then((savedIssue) => {
       return res.status(201).send(savedIssue);
     })
@@ -51,7 +52,7 @@ issueRouter.delete("/:issueId", (req, res, next) => {
 // Update Issue
 issueRouter.put("/:issueId", (req, res, next) => {
   Issue.findOneAndUpdate(
-    { _id: req.params.IssueId, user: req.auth._id },
+    { _id: req.params.issueId, user: req.auth._id },
     req.body,
     { new: true }
   )
