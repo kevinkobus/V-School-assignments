@@ -20,8 +20,8 @@ issueRouter.post("/", (req, res, next) => {
   const newIssue = new Issue(req.body);
   newIssue
     .save()
-    .then((res) => console.log(res))
     .then((savedIssue) => {
+      // console.log(savedIssue) // if want to console.log for testing it must be inside the .then
       return res.status(201).send(savedIssue);
     })
     .catch((err) => {

@@ -95,7 +95,7 @@ function UserContextProvider(props) {
       })
       .catch((err) => console.log(err.response.data.errMsg));
   }
-
+console.log(userState)
   //   returning/providing the userState and other values to be consumed by any component that imports them
   return (
     <UserContext.Provider
