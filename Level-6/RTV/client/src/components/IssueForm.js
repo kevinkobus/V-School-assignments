@@ -5,7 +5,7 @@ const initInputs = {
   description: "",
 };
 
-function CourseForm(props) {
+function IssueForm(props) {
   const [inputs, setInputs] = useState(initInputs);
   const { addIssue } = props
 

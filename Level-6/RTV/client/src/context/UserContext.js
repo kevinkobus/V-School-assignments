@@ -38,7 +38,7 @@ function UserContextProvider(props) {
         }));
       })
       // .catch(err => console.dir(err))
-      .catch((err) => console.log(err.response.data.errMsg));
+      .catch((err) => handleAuthErr(err.response.data.errMsg));
   }
 
   // User login
@@ -57,7 +57,7 @@ function UserContextProvider(props) {
         }));
       })
       // .catch(err => console.dir(err))
-      .catch((err) => console.log(err.response.data.errMsg));
+      .catch((err) => handleAuthErr(err.response.data.errMsg));
   }
 
   // User logout which removes user info from localStorage and resets state
@@ -69,6 +69,20 @@ function UserContextProvider(props) {
       token: "",
       issues: [],
     });
+  }
+
+  function handleAuthErr(errMsg) {
+    setUserState((prevState) => ({
+      ...prevState,
+      errMsg,
+    }));
+  }
+
+  function resetAuthErr() {
+    setUserState((prevState) => ({
+      ...prevState,
+      errMsg: "",
+    }));
   }
 
   function getUserIssues() {
@@ -105,6 +119,7 @@ function UserContextProvider(props) {
         login,
         logout,
         addIssue,
+        resetAuthErr,
       }}
     >
       {props.children}
