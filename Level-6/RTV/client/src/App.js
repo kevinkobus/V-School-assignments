@@ -5,6 +5,7 @@ import Auth from './components/Auth'
 import Profile from './components/Profile'
 import Public from './components/Public'
 import { UserContext } from "./context/UserContext"
+import ProtectedRoute from "./components/ProtectedRoute"
 
 function App(){
   const { token, logout } = useContext(UserContext)
@@ -18,11 +19,15 @@ function App(){
         />
         <Route 
           path="/profile"
-          element={<Profile />}
+          element={<ProtectedRoute token={token} redirectTo="/">
+            <Profile />
+          </ProtectedRoute>}
         />
         <Route 
           path="/public"
-          element={<Public />}
+          element={<ProtectedRoute token={token} redirtectTo="/">
+            <Public />
+          </ProtectedRoute>}
         />
       </Routes>
     </div>
