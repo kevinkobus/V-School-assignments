@@ -25,7 +25,7 @@ function IssueForm(props) {
 
   const { title, description } = inputs;
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="issue-form">
       <input
         type="text"
         name="title"

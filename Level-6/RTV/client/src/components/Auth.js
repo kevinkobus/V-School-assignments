@@ -35,7 +35,7 @@ function Auth(){
 
   return (
     <div className="auth-container">
-      <h1>RTV App</h1>
+      <h1 className="auth-title">Rock the Vote!</h1>
       { !toggle ?
         <>
           <AuthForm 
