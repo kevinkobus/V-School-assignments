@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function Issue(props) {
   const { title, description, _id } = props;
@@ -18,7 +18,7 @@ function Issue(props) {
         <button>Edit</button>
         <button>Delete</button>
       </div>
-      <Link to="/comments">Comments</Link>
+      {/* <Link to="/comments">Comments</Link> */}
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import IssueForm from "./IssueForm";
 import IssueList from "./IssueList";
-import Issue from "./Issue";
 import { UserContext } from "../context/UserContext";
 
 function Profile() {

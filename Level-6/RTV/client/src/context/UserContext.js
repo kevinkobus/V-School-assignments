@@ -1,6 +1,7 @@
 import React, { useState, createContext } from "react";
 import axios from "axios";
 
+// Declaring context as a variable to export
 const UserContext = createContext();
 
 // Creating another version of axios to intercept user token so it gets passed with the authorization header
@@ -12,7 +13,7 @@ userAxios.interceptors.request.use((config) => {
   return config;
 });
 
-// Context provider for user signup/login and authentication
+// Creating context provider for user signup/login and authentication to export
 function UserContextProvider(props) {
   const initState = {
     user: JSON.parse(localStorage.getItem("user")) || {},
@@ -20,8 +21,8 @@ function UserContextProvider(props) {
     issues: [],
   };
 
-  // Set state for user's info and set initState from above as default
-  const [userState, setUserState] = useState(initState);
+  // Setting state for user's info and set initState from above as default
+  const [userState, setUserState] = useState(initState); 
 
   // User signup
   function signup(credentials) {
@@ -49,7 +50,8 @@ function UserContextProvider(props) {
         const { user, token } = res.data;
         localStorage.setItem("token", token); //saving the token data to localStorage so not to lose it after browser refresh
         localStorage.setItem("user", JSON.stringify(user)); //saving the user data to localStorage so not to lose it after browser refresh
-        getUserIssues();
+        // getUserIssues();
+        getAllIssues();
         setUserState((prevUserState) => ({
           ...prevUserState,
           user,
@@ -71,6 +73,22 @@ function UserContextProvider(props) {
     });
   }
 
+//   // Update user information (if a user wants to change something about their username or password)
+
+  //   function updateUser(updatedUser) {
+  //     userAxios.put("/api/user", updatedUser)
+  //         .then(res => {
+  //             localStorage.setItem("user", JSON.stringify(res.data))
+  //             setUserState(prevUserState => ({
+  //                 ...prevUserState,
+  //                 user: res.data
+  //             }))
+  //         })
+  //         .catch(err => console.log(err))
+  // }   
+
+
+  // Handling Errors
   function handleAuthErr(errMsg) {
     setUserState((prevState) => ({
       ...prevState,
@@ -78,6 +96,7 @@ function UserContextProvider(props) {
     }));
   }
 
+  // Reseting the authorization error
   function resetAuthErr() {
     setUserState((prevState) => ({
       ...prevState,
@@ -97,19 +116,8 @@ function UserContextProvider(props) {
       .catch((err) => console.log(err.response.data.errMsg));
   }
 
-  function addIssue(newIssue) {
-    userAxios
-      .post("/api/issue", newIssue)
-      // .then((res) => console.log(res))
-      .then((res) => {
-        setUserState((prevState) => ({
-          ...prevState,
-          issues: [...prevState.issues, res.data],
-        }));
-      })
-      .catch((err) => console.log(err.response.data.errMsg));
-  }
   // console.log(userState)
+
   //   returning/providing the userState and other values to be consumed by any component that imports them
   return (
     <UserContext.Provider
@@ -118,8 +126,10 @@ function UserContextProvider(props) {
         signup,
         login,
         logout,
-        addIssue,
         resetAuthErr,
+        addIssue,
+        
+        // updateUser,
       }}
     >
       {props.children}
@@ -127,4 +137,4 @@ function UserContextProvider(props) {
   );
 }
 
-export { UserContextProvider, UserContext };
+export { UserContextProvider, UserContext }; 
