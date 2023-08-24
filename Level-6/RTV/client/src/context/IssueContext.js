@@ -11,63 +11,88 @@ userAxios.interceptors.request.use((config) => {
   return config;
 });
 
-function IssueContextProvider(props){
-// Setting state for user and public issues with empty arrays as default
-const [userIssueState, setUserIssueState] = useState([]);
-const [publicIssueState, setPublicIssueState] = useState([]);
+function IssueContextProvider(props) {
+  // Setting state for user and public issues with empty arrays as default
+  const [userIssueState, setUserIssueState] = useState([]);
+  const [publicIssueState, setPublicIssueState] = useState([]);
 
-// Setting the initial state for user and public issues
-const initUserIssueState = {
-  issues: [],
-}
-const initPublicIssueState = {
-  publicIssues: [],
-}
+  // Setting the initial state for user and public issues
+  const initUserIssueState = {
+    issues: [],
+  };
+  const initPublicIssueState = {
+    publicIssues: [],
+  };
 
-function addIssue(newIssue) {
-  userAxios
-    .post("/api/issue", newIssue)
-    // .then((res) => console.log(res))
-    .then((res) => {
-      setUserState((prevState) => ({
-        ...prevState,
-        issues: [...prevState.issues, res.data],
-      }));
-      setAllIssues((prevIssues) => [...prevIssues, res.data]);
-    })
-    .catch((err) => console.log(err.response.data.errMsg));
-}
+  function addUserIssue(newIssue) {
+    userAxios
+      .post("/api/issue", newIssue)
+      // .then((res) => console.log(res))
+      .then((res) => {
+        setUserIssueState((prevState) => ({
+          ...prevState,
+          issues: [...prevState.issues, res.data],
+        }));
+      })
+      .catch((err) => console.log(err.response.data.errMsg));
+  }
 
+  // Getting user issues
+  function getUserIssues() {
+    userAxios
+      .get("/api/issue/user")
+      .then((res) => {
+        setUserIssueState((prevState) => ({
+          ...prevState,
+          issues: res.data,
+        }));
+      })
+      .catch((err) => console.log(err.response.data.errMsg));
+  }
 
+  // Getting all public issues
+  function getPublicIssues() {
+    userAxios
+      .get("/api/issue")
+      .then((res) => {
+        setPublicIssueState((prevState) => ({
+          ...prevState,
+          publicIssues: res.data,
+        }));
+      })
+      .catch((err) => console.log(err.response.data.errMsg));
+  }
 
+  // Deleting a user issue
+  function deleteIssue(issueId) {
+    userAxios
+      .put(`/api/issue/${issueId}`)
+      .then((res) => {
+        setUserIssueState((prevState) => ({
+          ...prevState,
+          issues: prevState.issues.filter((issue) => issue._id !== issueId),
+        }));
+      })
+      .catch((err) => console.log(err.response.data.errMsg));
+  }
 
+  // Editing a user issue
+  function editIssue(issueId, updatedIssue) {
+    userAxios
+      .put(`/api/issue/${issueId}`, updatedIssue)
+      .then((res) => {
+        setUserIssueState((prevState) => ({
+          ...prevState,
+          issues: prevState.issues.map((issue) =>
+            issue._id === issueId ? res.data : issue
+          ),
+        }));
+      })
+      .catch((err) => console.log(err.response.data.errMsg));
+  }
 
-// Getting all public issues
-function getPublicIssues() {
-  userAxios
-    .get("/api/issue")
-    .then((res) => setPublicIssueState(res.data))
-    console.log(publicIssueState)
-    .catch((err) => console.log(err));
-}
-
-
-    return (
-        <IssueContext.Provider
-          value={{
-            
-          }}
-        >
-          {props.children}
-        </IssueContext.Provider>
-      );
-    }
-
-    export { IssueContextProvider, IssueContext };
-
-
-
-//   function yesVote(issueId) {
+  // "Yes" voting an issue
+  //   function yesVote(issueId) {
   //     userAxios
   //       .put(`/api/issue/${issueId}/yesVote`)
   //       .then((res) => {
@@ -86,6 +111,7 @@ function getPublicIssues() {
   //       .catch((err) => console.log(err));
   //   }
 
+  // "No" voting an issue
   //   function noVote(issueId) {
   //     userAxios
   //       .put(`/api/issue/${issueId}/noVote`)
@@ -104,3 +130,24 @@ function getPublicIssues() {
   //       .catch((err) => console.log(err));
   //   }
   // }
+
+  return (
+    <IssueContext.Provider
+      value={{
+        ...userIssueState,
+        ...publicIssueState,
+        addUserIssue,
+        getUserIssues,
+        getPublicIssues,
+        deleteIssue,
+        editIssue,
+        // "Yes" voting an issue
+        // "No" voting an issue
+      }}
+    >
+      {props.children}
+    </IssueContext.Provider>
+  );
+}
+
+export { IssueContextProvider, IssueContext };

@@ -1,5 +1,6 @@
 import React, { useState, createContext } from "react";
 import axios from "axios";
+import { IssueContext } from "./IssueContext";
 
 // Declaring context as a variable to export
 const UserContext = createContext();
@@ -15,6 +16,8 @@ userAxios.interceptors.request.use((config) => {
 
 // Creating context provider for user signup/login and authentication to export
 function UserContextProvider(props) {
+  const { getPublicIssues } = useContext(IssueContext);
+
   const initState = {
     user: JSON.parse(localStorage.getItem("user")) || {},
     token: localStorage.getItem("token") || "",
@@ -22,7 +25,7 @@ function UserContextProvider(props) {
   };
 
   // Setting state for user's info and set initState from above as default
-  const [userState, setUserState] = useState(initState); 
+  const [userState, setUserState] = useState(initState);
 
   // User signup
   function signup(credentials) {
@@ -73,7 +76,7 @@ function UserContextProvider(props) {
     });
   }
 
-//   // Update user information (if a user wants to change something about their username or password)
+  //   // Update user information (if a user wants to change something about their username or password)
 
   //   function updateUser(updatedUser) {
   //     userAxios.put("/api/user", updatedUser)
@@ -85,8 +88,7 @@ function UserContextProvider(props) {
   //             }))
   //         })
   //         .catch(err => console.log(err))
-  // }   
-
+  // }
 
   // Handling Errors
   function handleAuthErr(errMsg) {
@@ -104,18 +106,6 @@ function UserContextProvider(props) {
     }));
   }
 
-  function getUserIssues() {
-    userAxios
-      .get("/api/issue/user")
-      .then((res) => {
-        setUserState((prevState) => ({
-          ...prevState,
-          issues: res.data,
-        }));
-      })
-      .catch((err) => console.log(err.response.data.errMsg));
-  }
-
   // console.log(userState)
 
   //   returning/providing the userState and other values to be consumed by any component that imports them
@@ -127,8 +117,6 @@ function UserContextProvider(props) {
         login,
         logout,
         resetAuthErr,
-        addIssue,
-        
         // updateUser,
       }}
     >
@@ -137,4 +125,4 @@ function UserContextProvider(props) {
   );
 }
 
-export { UserContextProvider, UserContext }; 
+export { UserContextProvider, UserContext };
