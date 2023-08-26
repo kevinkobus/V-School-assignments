@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { IssuesContext } from "../context/IssuesContext";
 
 const initInputs = {
   title: "",
@@ -6,8 +7,9 @@ const initInputs = {
 };
 
 function IssueForm(props) {
+  const { addUserIssue } = useContext(IssuesContext)
+
   const [inputs, setInputs] = useState(initInputs);
-  const { addIssue } = props
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -19,8 +21,8 @@ function IssueForm(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    addIssue(inputs)
-    setInputs(initInputs)
+    addUserIssue(inputs);
+    setInputs(initInputs);
   }
 
   const { title, description } = inputs;

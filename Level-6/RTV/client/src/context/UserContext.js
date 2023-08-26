@@ -1,6 +1,6 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useContext } from "react";
 import axios from "axios";
-import { IssueContext } from "./IssueContext";
+import { IssuesContext } from "./IssuesContext";
 
 // Declaring context as a variable to export
 const UserContext = createContext();
@@ -16,7 +16,8 @@ userAxios.interceptors.request.use((config) => {
 
 // Creating context provider for user signup/login and authentication to export
 function UserContextProvider(props) {
-  const { getPublicIssues } = useContext(IssueContext);
+
+  const { getUserIssues, getPublicIssues } = useContext(IssuesContext);
 
   const initState = {
     user: JSON.parse(localStorage.getItem("user")) || {},
@@ -53,16 +54,16 @@ function UserContextProvider(props) {
         const { user, token } = res.data;
         localStorage.setItem("token", token); //saving the token data to localStorage so not to lose it after browser refresh
         localStorage.setItem("user", JSON.stringify(user)); //saving the user data to localStorage so not to lose it after browser refresh
-        // getUserIssues();
-        getAllIssues();
+        getUserIssues();
+        getPublicIssues();
         setUserState((prevUserState) => ({
           ...prevUserState,
           user,
           token,
         }));
       })
-      // .catch(err => console.dir(err))
-      .catch((err) => handleAuthErr(err.response.data.errMsg));
+      .catch(err => console.dir(err))
+      // .catch((err) => handleAuthErr(err.response.data.errMsg));
   }
 
   // User logout which removes user info from localStorage and resets state
@@ -116,6 +117,7 @@ function UserContextProvider(props) {
         signup,
         login,
         logout,
+        handleAuthErr,
         resetAuthErr,
         // updateUser,
       }}
