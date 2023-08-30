@@ -12,6 +12,7 @@
   background-color: #eee9;
 } */
 
+/* NAVBAR STYLING */
 .navbar {
   display: flex;
   justify-content: space-around;
@@ -24,6 +25,9 @@
   color: white;
 } */
 
+/* -------------------------------- */
+
+/* AUTH PAGE STYLING */
 .auth-container {
   display: flex;
   align-items: center;
@@ -65,10 +69,10 @@
   border-radius: 4px;
   background-color: #f1d11d;
 }
-.public {
-  height: 100vh;
-}
 
+/* -------------------------------- */
+
+/* PROFILE PAGE STYLING */
 .profile {
   display: flex;
   flex-direction: column;
@@ -113,10 +117,9 @@
   border: 3px solid #f1d11d;
 }
 
-/* .issue-list {
+/* -------------------------------- */
 
-} */
-
+/* ISSUE & PUBLIC ISSUE PAGE STYLING */
 .issue {
   border: 3px solid #0060a9;
   border-radius: 5px;
@@ -136,4 +139,21 @@ margin-right: 5px;
 width: 10%;
 margin: 5px;
 justify-self: flex-end;
+}
+
+.public {
+  height: 100vh;
+}
+
+.public-issue-list {
+  margin: auto;
+  max-width: 90%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
+}
+.all-issues {
+  text-align: center;
+  font-size: 30px;
+  margin: 5px;
 }

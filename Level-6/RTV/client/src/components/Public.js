@@ -1,23 +1,17 @@
-import React, { useContext, useEffect } from "react";
-import Issue from './Issue.js'
-import { IssuesContext } from "../context/IssuesContext"
+import React, { useContext } from "react";
+import PublicIssueList from "./PublicIssueList.js";
+import { IssuesContext } from "../context/IssuesContext";
 
-function Public(props){
-  const { publicIssues, getPublicIssues } = useContext(IssuesContext)
+function Public() {
+  const { publicIssues } = useContext(IssuesContext);
 
-  useEffect(() => {
-    getPublicIssues()
-  }, [])
 
   return (
     <div className="public">
-      <h1>All Issues</h1>
-      {publicIssues.map((publicIssue) => (
-        <Issue {...publicIssue} key={publicIssue._id} />
-      ))}
-      
+      <h1 className="all-issues">All Issues</h1>
+      <PublicIssueList publicIssues={publicIssues} />
     </div>
-  )
+  );
 }
 
-export default Public
+export default Public;

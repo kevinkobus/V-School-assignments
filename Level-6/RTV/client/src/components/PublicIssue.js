@@ -1,7 +1,7 @@
 import React from "react";
 // import { Link } from "react-router-dom";
 
-function Issue(props) {
+function PublicIssue(props) {
   const { title, description, _id } = props;
   return (
     <div className="issue">
@@ -14,14 +14,10 @@ function Issue(props) {
         <button>Yes</button>
         <button>No</button>
       </div>
-      <div className="issue-btns">
-        <button>Edit</button>
-        <button>Delete</button>
-      </div>
       <h3>View or add a comment on this issue</h3>
       {/* <Link to="/comments">Comments</Link> */}
     </div>
   );
 }
 
-export default Issue;
+export default PublicIssue;
