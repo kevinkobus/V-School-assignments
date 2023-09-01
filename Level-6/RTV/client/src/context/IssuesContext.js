@@ -67,7 +67,7 @@ function IssuesContextProvider(props) {
   // Deleting a user issue
   function deleteIssue(issueId) {
     userAxios
-      .put(`/api/issue/${issueId}`)
+      .delete(`/api/issue/${issueId}`)
       .then((res) => {
         setUserIssueState((prevState) => ({
           ...prevState,

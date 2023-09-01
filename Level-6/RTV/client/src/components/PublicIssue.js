@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 // import { Link } from "react-router-dom";
 
 function PublicIssue(props) {
+  
   const { title, description, _id } = props;
+
   return (
     <div className="issue">
       <div className="issue-info">
@@ -11,8 +13,8 @@ function PublicIssue(props) {
       </div>
       <div className="issue-btns">
         <h4>Is this a big issue?</h4>
-        <button>Yes</button>
-        <button>No</button>
+        <button>Yes (0)</button>
+        <button>No (0)</button>
       </div>
       <h3>View or add a comment on this issue</h3>
       {/* <Link to="/comments">Comments</Link> */}

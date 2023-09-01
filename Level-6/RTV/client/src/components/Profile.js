@@ -5,7 +5,6 @@ import { UserContext } from "../context/UserContext";
 import { IssuesContext } from "../context/IssuesContext"
 
 function Profile() {
-
   const {
     addUserIssue,
     issues,
@@ -15,7 +14,6 @@ function Profile() {
     user: { username }
   } = useContext(UserContext)
 
-  // console.log(issues)
   return (
     <div className="profile">
       <h1>Welcome {username}!</h1>
