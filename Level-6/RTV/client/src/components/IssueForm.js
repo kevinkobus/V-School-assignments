@@ -1,13 +1,14 @@
 import React, { useState, useContext } from "react";
 import { IssuesContext } from "../context/IssuesContext";
 
-const initInputs = {
-  title: "",
-  description: "",
-};
-
 function IssueForm(props) {
+
   const { addUserIssue } = useContext(IssuesContext)
+
+  const initInputs = {
+    title: props.title || "",
+    description: props.description || "",
+  };
 
   const [inputs, setInputs] = useState(initInputs);
 
@@ -21,6 +22,7 @@ function IssueForm(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    // props.submit(inputs, props._id)
     addUserIssue(inputs);
     setInputs(initInputs);
   }
@@ -42,7 +44,7 @@ function IssueForm(props) {
         onChange={handleChange}
         placeholder="Description"
       />
-      <button>Add Issue</button>
+      <button id="add-issue-btn">{props.btnText}</button>
     </form>
   );
 }

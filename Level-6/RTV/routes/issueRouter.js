@@ -1,6 +1,24 @@
 const express = require("express");
 const issueRouter = express.Router();
 const Issue = require("../models/Issue.js");
+const User = require("../models/User.js")
+const { expressjwt } = require("express-jwt");
+require("dotenv").config();
+
+// Get issues by user id
+issueRouter.get("/user", (req, res, next) => {
+  Issue.find({ user: req.auth._id })
+    .then((foundIssues) => {
+      if (!foundIssues) {
+        return res.status(404).send("Issue not found");
+      }
+      return res.status(200).send(foundIssues);
+    })
+    .catch((err) => {
+      res.status(500);
+      return next(err);
+    });
+});
 
 // Get All Issues
 issueRouter.get("/", (req, res, next) => {
@@ -68,19 +86,7 @@ issueRouter.put("/:issueId", (req, res, next) => {
     });
 });
 
-// Get issues by user id
-issueRouter.get("/user", (req, res, next) => {
-  Issue.find({ user: req.auth._id })
-    .then((foundIssues) => {
-      if (!foundIssues) {
-        return res.status(404).send("Issue not found");
-      }
-      return res.status(200).send(foundIssues);
-    })
-    .catch((err) => {
-      res.status(500);
-      return next(err);
-    });
-});
+// Update Issue for votes
+// Update Issue for comments
 
 module.exports = issueRouter;

@@ -13,6 +13,20 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  firstName: {
+    type: String,
+    lowercase: true,
+    default: ""
+  },
+  lastName: {
+    type: String,
+    lowercase: true,
+    default: ""
+  },
+  profilePic: {
+    type: String,
+    default: ""
+  }, 
   memeberSince: {
     type: Date,
     default: Date.now,

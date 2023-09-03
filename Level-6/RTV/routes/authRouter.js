@@ -66,4 +66,7 @@ authRouter.post("/login", (req, res, next) => {
     });
 });
 
+// Update user username and/or password
+
+
 module.exports = authRouter;

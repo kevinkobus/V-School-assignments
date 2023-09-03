@@ -1,32 +1,21 @@
 import React, { useContext, useState } from "react";
+import IssueForm from "./IssueForm";
 import { IssuesContext } from "../context/IssuesContext";
 // import { UserContext } from "../context/UserContext";
 // import { Link } from "react-router-dom";
 
 function Issue(props) {
-
-  const { title, description, _id, handleChange } = props;
-
+  // console.log(props.issues)
+  const { title, description, _id, handleChange, inputs } = props;
   const { deleteIssue, editIssue } = useContext(IssuesContext);
-
-  // const {
-  //   token,
-  //   user: { username },
-  // } = useContext(UserContext);
 
   const [editToggle, setEditToggle] = useState(false);
 
-  function handleDelete() {
-    deleteIssue(_id);
-  }
+  // console.log(inputs)
 
-  function handleEdit() {
-    setEditToggle(!editToggle);
-  }
-
-  function handleSave() {
-    editIssue(_id);
-    setEditToggle(false);
+  function handleEditSubmit() {
+    editIssue(_id, inputs);
+    setEditToggle((prevToggle) => !prevToggle)
   }
 
   return (
@@ -39,37 +28,36 @@ function Issue(props) {
           </div>
           <div className="issue-btns">
             <h4>Is this a big issue?</h4>
-            <button>Yes (0)</button>
-            <button>No (0)</button>
+            <button id="yes-btn">Yes (0)</button>
+            {/* {yesVotes} */}
+            <button id="no-btn">No (0)</button>
+            {/* {noVotes} */}
           </div>
           <div className="issue-btns">
-            <button onClick={handleEdit}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
+            <button onClick={() => setEditToggle((prevToggle) => !prevToggle)}>
+              Edit
+            </button>
+            <button onClick={() => deleteIssue(_id)}>Delete</button>
           </div>
-          <h3>View or add a comment on this issue</h3>
+          <h3>View or add comment(s) on this issue</h3>
           {/* <Link to="/comments">Comments</Link> */}
         </>
       ) : (
         <>
-          <div className="edit-form">
-            <form onSubmit={handleSave} className="edit-issue-form">
-              <input
-                type="text"
-                name="title"
-                value={title}
-                onChange={handleChange}
-                placeholder="Title"
-              />
-              <input
-                type="text"
-                name="description"
-                value={description}
-                onChange={handleChange}
-                placeholder="Description"
-              />
-              <button>Save</button>
-            </form>
-          </div>
+          <IssueForm
+            title={title}
+            description={description}
+            _id={_id}
+            btnText="Save Edit"
+            handleChange={handleChange}
+            submit={handleEditSubmit}
+          />
+          <button
+            id="cancel-btn"
+            onClick={() => setEditToggle((prevToggle) => !prevToggle)}
+          >
+            Cancel
+          </button>
         </>
       )}
     </div>
@@ -77,3 +65,39 @@ function Issue(props) {
 }
 
 export default Issue;
+
+{
+  /* <form onSubmit={handleEditSubmit} className="edit-issue-form">
+            <label>Issue:</label>
+            <input
+              type="text"
+              name="title"
+              defaultValue={title}
+              onChange={handleChange}
+              placeholder="Title"
+            />
+            <label>Description:</label>
+            <input
+              type="text"
+              name="description"
+              defaultValue={description}
+              onChange={handleChange}
+              placeholder="Description"
+            />
+            <button id="save-btn">
+              Save
+            </button>
+          </form> */
+}
+
+// <button
+//     id="close-btn"
+//     onClick={() => setEditToggle((prevToggle) => !prevToggle)}
+//   >
+//     Close
+//   </button>
+
+// const {
+//   token,
+//   user: { username },
+// } = useContext(UserContext);

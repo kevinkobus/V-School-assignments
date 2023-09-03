@@ -10,6 +10,7 @@ function IssueList(props) {
     getUserIssues();
   }, []);
 
+// console.log(issues)
   return (
     <div className="issue-list">
       {issues.map((issue) => (

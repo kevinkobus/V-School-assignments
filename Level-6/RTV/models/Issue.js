@@ -9,15 +9,39 @@ const issueSchema = new Schema({
   description: {
     type: String,
   },
-  voted: {
-    type: Boolean,
-    default: false,
-  },
   user: {
     type: Schema.Types.ObjectId,
     ref: "User",
     required: true,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  yesVotes: [
+    {
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+      username: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
+  noVotes: [
+    {
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+      username: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
 });
 
 module.exports = mongoose.model("Issue", issueSchema);
