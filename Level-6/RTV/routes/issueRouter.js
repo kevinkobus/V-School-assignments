@@ -1,9 +1,7 @@
 const express = require("express");
 const issueRouter = express.Router();
 const Issue = require("../models/Issue.js");
-const User = require("../models/User.js")
-const { expressjwt } = require("express-jwt");
-require("dotenv").config();
+
 
 // Get issues by user id
 issueRouter.get("/user", (req, res, next) => {
@@ -67,7 +65,7 @@ issueRouter.delete("/:issueId", (req, res, next) => {
     });
 });
 
-// Update Issue
+// Update/Edit an Issue
 issueRouter.put("/:issueId", (req, res, next) => {
   Issue.findOneAndUpdate(
     { _id: req.params.issueId, user: req.auth._id },
