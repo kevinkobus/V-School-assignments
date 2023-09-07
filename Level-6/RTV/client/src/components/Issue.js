@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import IssueForm from "./IssueForm";
 import { IssuesContext } from "../context/IssuesContext";
+import CommentForm from "./CommentForm"
 // import { UserContext } from "../context/UserContext";
 // import { Link } from "react-router-dom";
 
@@ -39,7 +40,9 @@ function Issue(props) {
             </button>
             <button onClick={() => deleteIssue(_id)}>Delete</button>
           </div>
-          <h3>View or add comment(s) on this issue</h3>
+          {/* <h3>View or add comment(s) on this issue</h3> */}
+          <h2>Comments</h2>
+          <CommentForm />
           {/* <Link to="/comments">Comments</Link> */}
         </>
       ) : (

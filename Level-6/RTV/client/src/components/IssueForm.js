@@ -22,7 +22,6 @@ function IssueForm(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // props.submit(inputs, props._id)
     addUserIssue(inputs);
     setInputs(initInputs);
   }
@@ -50,23 +49,3 @@ function IssueForm(props) {
 }
 
 export default IssueForm;
-
-// <input
-//   type="number"
-//   name="votesFor"
-//   value={votesFor}
-//   onChange={handleChange}
-//   placeholder="Votes For"
-// />
-// <input
-//   type="number"
-//   name="votesAgainst"
-//   value={votesAgainst}
-//   onChange={handleChange}
-//   placeholder="Votes Against"
-// />
-
-// votesFor: "",
-// votesAgainst: ""
-
-// votesFor, votesAgainst

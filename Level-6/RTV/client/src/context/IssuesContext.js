@@ -1,7 +1,6 @@
 import React, { useState, createContext, useEffect } from "react";
 import axios from "axios";
 
-
 const IssuesContext = createContext();
 
 const userAxios = axios.create();
@@ -12,18 +11,19 @@ userAxios.interceptors.request.use((config) => {
   return config;
 });
 
-
-// Setting the initial state for user and public issues
-const initUserIssueState = {
-  issues: [],
-};
-const initPublicIssueState = {
-  publicIssues: [],
-};
 function IssuesContextProvider(props) {
+  // Setting the initial state for user and public issues
+  const initUserIssueState = {
+    issues: [],
+  };
+  const initPublicIssueState = {
+    publicIssues: [],
+  };
+
   // Setting state for user and public issues with empty arrays as default
   const [userIssueState, setUserIssueState] = useState(initUserIssueState);
-  const [publicIssueState, setPublicIssueState] = useState(initPublicIssueState);
+  const [publicIssueState, setPublicIssueState] =
+    useState(initPublicIssueState);
 
   function addUserIssue(newIssue) {
     userAxios
