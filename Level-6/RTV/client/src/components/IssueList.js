@@ -11,6 +11,7 @@ function IssueList(props) {
   }, []);
 
 // console.log(issues)
+
   return (
     <div className="issue-list">
       {issues.map((issue) => (

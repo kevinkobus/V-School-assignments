@@ -18,14 +18,6 @@ function App() {
           element={token ? <Navigate to="/profile" /> : <Auth />}
         />
         <Route
-          path="/public"
-          element={
-            <ProtectedRoute token={token} redirtectTo="/">
-              <Public />
-            </ProtectedRoute>
-          }
-        />
-        <Route
           path="/profile"
           element={
             <ProtectedRoute token={token} redirectTo="/">
@@ -33,8 +25,16 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/public"
+          element={
+            <ProtectedRoute token={token} redirtectTo="/">
+              <Public />
+            </ProtectedRoute>
+          }
+        />
         {/* <Route
-          path="/comment"
+          path="/comments"
           element={
             <ProtectedRoute token={token} redirectTo="/">
               <Comment />

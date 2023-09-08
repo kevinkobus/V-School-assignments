@@ -1,4 +1,4 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, createContext } from "react";
 import axios from "axios";
 
 const IssuesContext = createContext();
@@ -12,6 +12,7 @@ userAxios.interceptors.request.use((config) => {
 });
 
 function IssuesContextProvider(props) {
+  // State for Issues
   // Setting the initial state for user and public issues
   const initUserIssueState = {
     issues: [],
@@ -20,11 +21,21 @@ function IssuesContextProvider(props) {
     publicIssues: [],
   };
 
-  // Setting state for user and public issues with empty arrays as default
+  // Setting state for user and public issues
   const [userIssueState, setUserIssueState] = useState(initUserIssueState);
   const [publicIssueState, setPublicIssueState] =
     useState(initPublicIssueState);
 
+  // State for Comments
+  // Setting the initial state of comments
+  const initComment = {
+    comments: [],
+  };
+
+  // Setting state for comments
+  const [commentState, setCommentState] = useState(initComment);
+
+  // Functions for Issues
   function addUserIssue(newIssue) {
     userAxios
       .post("/api/issue", newIssue)
@@ -39,10 +50,33 @@ function IssuesContextProvider(props) {
   }
 
   // Getting user issues
+  // function getUserIssues() {
+  //   userAxios
+  //     .get("/api/issue/user")
+  //     .then((res) => {
+  //       setUserIssueState((prevState) => ({
+  //         ...prevState,
+  //         issues: res.data,
+  //       }));
+  //     })
+  //     .catch((err) => console.log(err.response.data.errMsg));
+  // }
+
+  // Get user issues and associated comments
   function getUserIssues() {
     userAxios
       .get("/api/issue/user")
       .then((res) => {
+        Promise.all(
+          res.data.map(async (issue) => {
+            return {
+              ...issue,
+              comments: await getIssueComments(issue._id).then((comments) => {
+                return issue.comments;
+              }),
+            };
+          })
+        );
         setUserIssueState((prevState) => ({
           ...prevState,
           issues: res.data,
@@ -51,7 +85,7 @@ function IssuesContextProvider(props) {
       .catch((err) => console.log(err.response.data.errMsg));
   }
 
-  // Getting all public issues
+  // Getting all (public) issues and their comments
   function getPublicIssues() {
     userAxios
       .get("/api/issue")
@@ -64,7 +98,7 @@ function IssuesContextProvider(props) {
       .catch((err) => console.log(err.response.data.errMsg));
   }
 
-  // Deleting a user issue
+  // Deleting a user issue (and eventually its comments?)
   function deleteIssue(issueId) {
     userAxios
       .delete(`/api/issue/${issueId}`)
@@ -134,6 +168,45 @@ function IssuesContextProvider(props) {
 
   // console.log(userIssueState)
 
+  // Getting all comments for testing purposes
+  function getAllComments() {
+    userAxios
+      .get("/api/comment")
+      .then((res) => {
+        setCommentState((prevState) => ({
+          ...prevState,
+          comments: res.data,
+        }));
+      })
+      .catch((err) => console.log(err.response.data.errMsg));
+  }
+
+  // Get comments for an individual issue for testing purposes
+  function getIssueComments(issueId) {
+    userAxios
+      .get(`/api/comment/${issueId}`)
+      .then((res) => {
+        setCommentState((prevState) => ({
+          ...prevState,
+          comments: res.data,
+        }));
+      })
+      .catch((err) => console.log(err.response.data.errMsg));
+  }
+
+  function addComment(newComment) {
+    userAxios
+      .post("/api/comment", newComment)
+      // .then((res) => console.log(res))
+      .then((res) => {
+        setCommentState((prevState) => ({
+          ...prevState,
+          comments: [...prevState, res.data],
+        }));
+      })
+      .catch((err) => console.log(err.response.data.errMsg));
+  }
+
   return (
     <IssuesContext.Provider
       value={{
@@ -144,8 +217,12 @@ function IssuesContextProvider(props) {
         getPublicIssues,
         deleteIssue,
         editIssue,
-        // "Yes" voting an issue
-        // "No" voting an issue
+        // "Yes" voting an issue,
+        // "No" voting an issue,
+        ...commentState,
+        getAllComments,
+        getIssueComments,
+        addComment,
       }}
     >
       {props.children}

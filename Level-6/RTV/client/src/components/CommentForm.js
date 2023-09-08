@@ -1,9 +1,8 @@
 import React, { useState, useContext } from "react";
-import { CommentsContext } from "../context/CommentsContext"
+import { IssuesContext } from "../context/IssuessContext";
 
 function CommentForm() {
-
-const { addComment } = useContext(CommentsContext)
+  const { addComment } = useContext(IssuesContext);
 
   const initCommentInput = "";
 
@@ -24,16 +23,18 @@ const { addComment } = useContext(CommentsContext)
   }
 
   return (
-    <form onSubmit={commentSubmit} className="comment-container">
-      <input
-        id="comment-input"
-        name="comment"
-        type="text"
-        value={commentInput}
-        onChange={handleCommentChange}
-        placeholder="Add a comment..."
-      />
-    </form>
+    <div className="comment-form-container">
+      <form onSubmit={commentSubmit} >
+        <input
+          id="comment-input"
+          name="comment"
+          type="text"
+          value={commentInput}
+          onChange={handleCommentChange}
+          placeholder="Add a comment..."
+        />
+      </form>
+    </div>
   );
 }
 

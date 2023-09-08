@@ -1,8 +1,8 @@
 const express = require("express");
 const commentRouter = express.Router();
 const Comment = require("../models/Comment.js");
-// const User = require("../models/User.js")
-// const Issue = require("../models/Issue.js")
+const User = require("../models/User.js")
+const Issue = require("../models/Issue.js")
 
 // Add new comment
 commentRouter.post("/:issueId", (req, res, next) => {
