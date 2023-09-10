@@ -62,8 +62,8 @@ function UserContextProvider(props) {
           token,
         }));
       })
-      .catch(err => console.dir(err))
-      // .catch((err) => handleAuthErr(err.response.data.errMsg));
+      // .catch(err => console.dir(err))
+      .catch((err) => handleAuthErr(err.response.data.errMsg));
   }
 
   // User logout which removes user info from localStorage and resets state
@@ -106,8 +106,6 @@ function UserContextProvider(props) {
       errMsg: "",
     }));
   }
-
-  // console.log(userState)
 
   //   returning/providing the userState and other values to be consumed by any component that imports them
   return (

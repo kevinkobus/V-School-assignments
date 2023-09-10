@@ -1,5 +1,6 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useContext } from "react";
 import axios from "axios";
+import { UserContext } from "./UserContext"
 
 const IssuesContext = createContext();
 
@@ -12,6 +13,11 @@ userAxios.interceptors.request.use((config) => {
 });
 
 function IssuesContextProvider(props) {
+
+// const { 
+//   user: { username }
+//  } = useContext(UserContext)
+
   // State for Issues
   // Setting the initial state for user and public issues
   const initUserIssueState = {
@@ -36,6 +42,7 @@ function IssuesContextProvider(props) {
   const [commentState, setCommentState] = useState(initComment);
 
   // Functions for Issues
+  // Add Issue
   function addUserIssue(newIssue) {
     userAxios
       .post("/api/issue", newIssue)
@@ -50,33 +57,10 @@ function IssuesContextProvider(props) {
   }
 
   // Getting user issues
-  // function getUserIssues() {
-  //   userAxios
-  //     .get("/api/issue/user")
-  //     .then((res) => {
-  //       setUserIssueState((prevState) => ({
-  //         ...prevState,
-  //         issues: res.data,
-  //       }));
-  //     })
-  //     .catch((err) => console.log(err.response.data.errMsg));
-  // }
-
-  // Get user issues and associated comments
   function getUserIssues() {
     userAxios
       .get("/api/issue/user")
       .then((res) => {
-        Promise.all(
-          res.data.map(async (issue) => {
-            return {
-              ...issue,
-              comments: await getIssueComments(issue._id).then((comments) => {
-                return issue.comments;
-              }),
-            };
-          })
-        );
         setUserIssueState((prevState) => ({
           ...prevState,
           issues: res.data,
@@ -84,6 +68,29 @@ function IssuesContextProvider(props) {
       })
       .catch((err) => console.log(err.response.data.errMsg));
   }
+
+  // Get user issues and associated comments
+  // function getUserIssues() {
+  //   userAxios
+  //     .get("/api/issue/user")
+  //     .then((res) => {
+  //       Promise.all(
+  //         res.data.map(async (issue) => {
+  //           return {
+  //             ...issue,
+  //             comments: await getIssueComments(issue._id).then((comments) => {
+  //               return issue.comments;
+  //             }),
+  //           };
+  //         })
+  //       );
+  //       setUserIssueState((prevState) => ({
+  //         ...prevState,
+  //         issues: res.data,
+  //       }));
+  //     })
+  //     .catch((err) => console.log(err.response.data.errMsg));
+  // }
 
   // Getting all (public) issues and their comments
   function getPublicIssues() {

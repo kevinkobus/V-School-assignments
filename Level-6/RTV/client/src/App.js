@@ -10,7 +10,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
   const { token, logout } = useContext(UserContext);
   return (
-    <div className="app">
+    <div className="App">
       {token && <Navbar logout={logout} token={token} />}
       <Routes>
         <Route

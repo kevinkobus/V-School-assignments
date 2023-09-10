@@ -1,16 +1,16 @@
 import React, { useContext, useState, useEffect } from "react";
 import IssueForm from "./IssueForm";
 import { IssuesContext } from "../context/IssuesContext";
-import { CommentsContext } from "../context/CommentsContext"
-import CommentList from "./Comment"
+import CommentList from "./CommentList";
 // import { UserContext } from "../context/UserContext";
 // import { Link } from "react-router-dom";
 
 function Issue(props) {
-  // console.log(props.issues)
-  const { title, description, _id, handleChange, inputs, comment } = props;
-  const { deleteIssue, editIssue, issueId } = useContext(IssuesContext);
-  const { getIssueComments } = useContext(CommentsContext)
+  // console.log(props)
+  const { title, description, username, _id, handleChange, inputs, comment } =
+    props;
+  const { deleteIssue, editIssue, issueId, getIssueComments } =
+    useContext(IssuesContext);
 
   const [editToggle, setEditToggle] = useState(false);
 
@@ -18,39 +18,38 @@ function Issue(props) {
 
   function handleIssueEdit() {
     editIssue(_id, inputs);
-    setEditToggle((prevToggle) => !prevToggle)
+    setEditToggle((prevToggle) => !prevToggle);
   }
 
-  useEffect(() => {
-    getIssueComments(issueId);
-  }, []);
-
   return (
-    <div className="issue">
+    <div className="issue-box">
       {!editToggle ? (
         <>
-          <div className="issue-info">
-            <h1>Issue: {title}</h1>
-            <h3>Description: {description}</h3>
+          <div className="issue-grid">
+            <div className="issue-box1">
+              <h1>Issue: {title}</h1>
+              <h3>Description: {description}</h3>
+              <h3>Posted by: {username}</h3>
+            </div>
+            <div className="issue-box2">
+              <h4>Is this a big issue?</h4>
+              <button id="yes-btn">Yes</button>
+              <p>Yes votes: 100</p>
+              {/* {yesVotes} */}
+              <button id="no-btn">No</button>
+              <p>No votes: 100</p>
+              {/* {noVotes} */}
+            </div>
+            <div className="issue-box3">
+              <button id="edit-issue-btn"
+                onClick={() => setEditToggle((prevToggle) => !prevToggle)}
+              >
+                Edit
+              </button>
+              <button id="delete-issue-btn" onClick={() => deleteIssue(_id)}>Delete</button>
+            </div>
           </div>
-          <div className="issue-btns">
-            <h4>Is this a big issue?</h4>
-            <button id="yes-btn">Yes (0)</button>
-            {/* {yesVotes} */}
-            <button id="no-btn">No (0)</button>
-            {/* {noVotes} */}
-          </div>
-          <div className="issue-btns">
-            <button onClick={() => setEditToggle((prevToggle) => !prevToggle)}>
-              Edit
-            </button>
-            <button onClick={() => deleteIssue(_id)}>Delete</button>
-          </div>
-          <h3>View or add comment(s) on this issue</h3>
-          <CommentList
-            comment={comment}
-          />
-          {/* <Link to="/comments">Comments</Link> */}
+          <CommentList />
         </>
       ) : (
         <>

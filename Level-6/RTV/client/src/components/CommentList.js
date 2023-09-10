@@ -8,11 +8,14 @@ function CommentList(props) {
   // const {} = props;
 
 
-  // console.log(comments);
+  // console.dir(comments);
 
   return (
-    <div className="comment-list-container">
-      <CommentForm />
+    <div className="comment-section">
+      <div>
+        <CommentForm />
+      </div>
+      
       {comments.map((comment) => (
         <Comment
          {...comment} 

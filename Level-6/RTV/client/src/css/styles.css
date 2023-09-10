@@ -8,7 +8,11 @@
   text-decoration: none;
 }
 
-/* .app {
+/* #root {
+  background-color: #eee9;
+}
+
+.App {
   background-color: #eee9;
 } */
 
@@ -66,7 +70,7 @@
   margin: 16px 8px;
   padding: 8px;
   border: 3px solid #bf0a30;
-  border-radius: 4px;
+  border-radius: 3px;
   background-color: #f1d11d;
 }
 
@@ -124,57 +128,58 @@
 /* -------------------------------- */
 
 /* ISSUE & PUBLIC ISSUE PAGE STYLING */
-.issue {
-  border: 3px solid #0060a9;
+.issue-box {
+  border: 5px solid #0060a9;
   border-radius: 5px;
-  display: flex;
+  width: 100%;
+  /* display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  margin-bottom: 5px;
+  justify-content: space-evenly; */
 }
-
-.issue-info > h1, h3,
-.issue-btns > h4 {
-margin-left: 5px;
-margin-right: 5px;
-}
-
-#yes-btn:hover {
-background-color: rgb(12, 209, 12);
-}
-
-#no-btn:hover {
-background-color: rgb(255, 34, 0);
-}
-
-.issue-btns > button {
-  width: 10%;
+.issue-grid {
   margin: 5px;
-  justify-self: flex-end;
-}
-
-/* .edit-issue-form {
-  margin-left: 5px;
-  margin-right: 5px;
-  padding: 8px;
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  align-content: space-between;
 }
-
-#save-btn, #close-btn {
-  width: 20%;
-  margin-top: 5px;
+.issue-box1 {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
 }
-
-#save-btn:hover {
+.issue-box2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.issue-box3 {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+#yes-btn,
+#no-btn {
+  width: 10%;
+}
+#yes-btn:hover {
   background-color: rgb(12, 209, 12);
 }
+#no-btn:hover {
+  background-color: rgb(255, 34, 0);
+}
+#edit-issue-btn,
+#delete-issue-btn {
+  width: 10%;
+  margin-right: 8px;
+}
 
-#close-btn:hover {
-  background-color:  rgb(255, 34, 0);
-} */
+.issue-list {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 5px 5px;
+}
 
 .public {
   height: 100vh;
@@ -186,9 +191,32 @@ background-color: rgb(255, 34, 0);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: auto;
+  gap: 5px 5px;
 }
 .all-issues {
   text-align: center;
   font-size: 30px;
   margin: 5px;
+}
+
+/* .comment-form-container {
+  
+} */
+
+.comment-section {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#comment-input {
+  height: 10vh;
+  width: 100%;
+  border: 3px solid #f1d11d;
+}
+#post-comment-btn {
+  border: 3px solid #f1d11d;
+  border-radius: 3px;
+}
+#post-comment-btn:hover {
+  background-color: #f1d11d;
 }

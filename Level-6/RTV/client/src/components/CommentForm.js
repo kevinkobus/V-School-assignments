@@ -1,40 +1,66 @@
 import React, { useState, useContext } from "react";
-import { IssuesContext } from "../context/IssuessContext";
+import { IssuesContext } from "../context/IssuesContext";
+import { UserContext } from "../context/UserContext";
 
 function CommentForm() {
-  const { addComment } = useContext(IssuesContext);
+
+  const { addComment, comment, issueId } = useContext(IssuesContext);
+  const {
+    user: { username },
+  } = useContext(UserContext);
 
   const initCommentInput = "";
-
   const [commentInput, setCommentInput] = useState(initCommentInput);
 
+  const [commentOpen, setCommentOpen] = useState(false);
+
   function handleCommentChange(e) {
-    const { name, value } = e.target;
-    setCommentInput((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    const { value } = e.target;
+    setCommentInput(value);
   }
 
-  function commentSubmit(e) {
+  function handleCommentSubmit(e) {
     e.preventDefault();
-    addComment(commentInput);
-    setCommentInput(initCommentInput);
+    const newComment = {
+      comment,
+      commentor: username,
+      issue: issueId,
+    };
+    addComment(newComment, issueId)
+      .then(() => {
+        setCommentInput(initCommentInput);
+      })
+      .catch((err) => console.log(err.response.data.errMsg));
+  }
+
+  function handleToggle() {
+    setCommentOpen(!commentOpen);
   }
 
   return (
-    <div className="comment-form-container">
-      <form onSubmit={commentSubmit} >
-        <input
-          id="comment-input"
-          name="comment"
-          type="text"
-          value={commentInput}
-          onChange={handleCommentChange}
-          placeholder="Add a comment..."
-        />
-      </form>
-    </div>
+    <>
+      <div className="comment-toggle-btn" onClick={handleToggle}>
+        {commentOpen ? "Close Comment section🔼 " : "Leave a Comment 🔽"}
+      </div>
+      {commentOpen && (
+        <div className="comment-form-container">
+          <form onSubmit={handleCommentSubmit} className="comment-form">
+            <textarea
+              id="comment-input"
+              maxLength="160"
+              name="comment"
+              type="text"
+              value={commentInput} // or should this be just comment from the new comment object?
+              onChange={handleCommentChange}
+              placeholder="Add a comment...160 character max"
+            />
+            <button id="post-comment-btn"type="submit">Post Comment</button>
+          </form>
+        </div>
+      )}
+      <h3>Comments:</h3>
+
+    </>
   );
 }
 
