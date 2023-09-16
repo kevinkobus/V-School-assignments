@@ -21,12 +21,12 @@ function CommentForm() {
 
   function handleCommentSubmit(e) {
     e.preventDefault();
-    const newComment = {
+    const enteredComment = {
       comment,
       commentor: username,
       issue: issueId,
     };
-    addComment(newComment, issueId)
+    addComment(enteredComment, issueId)
       .then(() => {
         setCommentInput(initCommentInput);
       })
