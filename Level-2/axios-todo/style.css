@@ -1,0 +1,137 @@
+body {
+  background-color: #474e52;
+}
+
+h1 {
+  font-size: 40px;
+  font-family: fantasy lighter;
+  color: #000e2f;
+  margin-left: auto;
+  margin-right: auto;
+  border-right: 4px solid #000; /*This will be the blinking cursor*/
+  animation: cursor 1s infinite step-end, typing 15s infinite steps(20);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@keyframes cursor {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #000;
+  }
+}
+
+@keyframes typing {
+  0% {
+    width: 0ch;
+  } /*Text is hidden*/
+  30% {
+    width: 20ch;
+  } /*The enitre header will be typed out 1 character at a time*/
+  80% {
+    width: 20ch;
+  } /*Text stays visible*/
+  90% {
+    width: 0ch;
+  } /*Text is deleted*/
+  100% {
+    width: 0ch;
+  } /*Text stays hidden*/
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.form-input {
+  box-shadow: 4px 5px 4px 1px #e4002b;
+  margin: 10px;
+  padding: 3px;
+  font-size: 25px;
+  border-radius: 5px;
+  border: white;
+}
+
+#submit {
+  color: white;
+  font-size: 17px;
+  height: 80px;
+  width: 80px;
+  border-radius: 100px;
+  border: 1px solid black;
+  display: inline-block;
+  vertical-align: middle;
+  background-image: url(basketball.png);
+  background-size: cover;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+#submit:hover,
+#submit:focus,
+#submit:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+
+.todoItemList {
+  display: grid;
+  grid-template-columns: auto 1fr 2fr 1fr auto auto;
+  justify-content: space-between;
+  column-gap: 5px;
+  border: 2px solid white;
+  background-color: #bbc0c4;
+  padding: 5px;
+  font-size: 20px;
+}
+
+#todoItem {
+  grid-column: 2 / 3;
+  justify-self: center;
+  align-self: center;
+}
+
+#todoDescrip {
+  grid-column: 3 / 4;
+  justify-self: center;
+  align-self: center;
+}
+
+#todoPrice {
+  grid-column: 4 / 5;
+  justify-self: center;
+  align-self: center;
+}
+
+#todoCheckBox {
+  height: 25px;
+  width: 25px;
+  grid-column: 1 / 2;
+  justify-self: center;
+  align-self: center;
+}
+
+#todoDeleteBtn {
+  height: 25px;
+  width: 60px;
+  grid-column: 6 / 7;
+  justify-self: center;
+  align-self: center;
+}
+
+#todoEditBtn {
+  height: 25px;
+  width: 60px;
+  grid-column: 5 / 6;
+  justify-self: center;
+  align-self: center;
+}
