@@ -1,6 +1,6 @@
 import React, { useState, createContext, useContext } from "react";
 import axios from "axios";
-import { UserContext } from "./UserContext"
+// import { UserContext } from "./UserContext"
 
 const IssuesContext = createContext();
 

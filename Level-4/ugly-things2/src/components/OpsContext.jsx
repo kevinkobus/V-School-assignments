@@ -88,7 +88,7 @@ function OpsContextProvider(props) {
 
   // Runs when edit button is clicked and changes edit btn to save btn
   function handleEditClick() {
-    console.log("edit mode")
+    // console.log("edit mode")
     setDisplaySaveBtn(prevState => !prevState)
     console.log(displaySaveBtn)
   }
